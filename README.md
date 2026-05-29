@@ -46,6 +46,16 @@ Do not reorganize the whole docs tree. Keep this repo's existing docs path if it
 Pick one high-risk or high-change scope, add local documentation rules for stable vs temporary docs, create or update one behavior definition for that scope, and update tests/validation expectations around the observable claims.
 ```
 
+### Scoped Adoption For One Existing Scope
+
+```text
+Use Definition Harness 1.1 from <repo URL> to adopt only <scope name> in this existing repository.
+
+First inspect the current docs, code, tests, AGENTS.md, README, and PR template. Do not reorganize unrelated docs or adopt the whole repo.
+
+Create or update the local documentation rules so <scope name> is listed as an adopted scope. Then create or update one current-state definition for <scope name>, identify the validation commands or tests that should protect it, and make the smallest routing updates needed so future PRs keep that scope's docs, code, and tests aligned.
+```
+
 ### Repository That Already Adopted An Earlier Version
 
 ```text
@@ -71,7 +81,7 @@ If you are applying the pattern by hand instead of through an agent:
 - `*-definition.md` files describe current behavior, constraints, contracts, and observable outcomes.
 - `*-principles.md` files describe stable rationale that should guide future decisions.
 - `architecture.md` describes boundaries, ownership, dependency direction, and lifecycle invariants.
-- `development-flow.md` keeps docs, code, tests, validation, and PR closure in sync.
+- `development-flow.md` defines when planning, docs, tests, validation, and PR closure must be checked together.
 - `AGENTS.md` is a concise map for agents, not the full knowledge base.
 
 The governing idea is three-pillar independence:
@@ -82,42 +92,41 @@ The governing idea is three-pillar independence:
 
 None of the three should silently substitute for another.
 
-## What Is New In 1.1
+## What Adoption Sets Up
 
-Version 1.1 adds scoped adoption guidance for older and partially adopted repositories.
+Adoption should leave the target repository with a small set of explicit boundaries:
 
-The compatibility rule is:
+- where stable docs live, such as `documentation/` or an existing `docs/`
+- which docs are stable authority and which are temporary planning notes
+- which scopes are adopted now, and which remain under existing repo practice
+- which validation commands prove changes in adopted scopes
+- when `AGENTS.md`, README, architecture docs, definitions, principles, and tests must be updated
 
-Existing repositories that already use the earlier `documentation/` model do not need to rename directories, rewrite definitions, or restructure their docs.
+For a new repo, the agent usually adds starter docs such as:
 
-Version 1.1 adds:
+- `AGENTS.md`
+- `documentation/documentation-definition.md`
+- `documentation/development-flow.md`
+- `documentation/architecture.md`
+- one first `*-definition.md`
+- a PR template with Docs and Validation sections
 
-- `ADOPTION.md`: scoped adoption, stable vs temporary docs, and compatibility guidance
-- `templates/existing-repo-documentation-definition.template.md`: local docs rules for repos that already have mixed docs
-- `templates/adopted-scope.template.md`: one-subsystem adoption task template
-- `CHANGELOG.md`: version-level change notes
-- `VERSION`: current harness version marker
+For an existing repo, the agent should usually add less:
+
+- local documentation rules for the existing docs path
+- one adopted-scope definition
+- optional principles for stable rationale
+- minimal `AGENTS.md`, README, or PR-template routing updates
+
+Existing repositories that already use the earlier `documentation/` model do not need to rename directories, rewrite definitions, or restructure their docs for version 1.1.
 
 ## Scoped Adoption
 
-Scoped adoption means a repository can adopt the harness one subsystem, workflow, API surface, operator process, or product area at a time.
+Scoped adoption is for older repositories that already have code, docs, habits, and partially reliable local knowledge.
 
-The scope can be small. The discipline inside that scope should be real.
+Instead of reorganizing the whole repo, choose one subsystem, workflow, API surface, operator process, or product area and make that scope harnessed.
 
-For an adopted behavior scope:
-
-- create or update one `*-definition.md`
-- document current behavior, not an aspirational rewrite
-- keep implementation steps and migration history out of definitions
-- add or update tests around observable claims
-- record validation and documentation impact in the PR
-- update the definition when behavior changes later
-
-For rationale-only scopes, use `*-principles.md`. For boundary or ownership changes, update `architecture.md`.
-
-Temporary planning docs such as `*-context.md`, `*-implementation-guide.md`, `*-progress.md`, and `IN_PROGRESS.md` may support work, but they should not become long-term behavior authority.
-
-See `ADOPTION.md` for the full model.
+For that adopted scope, define the current behavior, set validation expectations, and make future PRs keep docs, code, and tests aligned. Existing notes and planning docs can stay, but they should not replace the adopted scope's definition.
 
 Examples:
 
@@ -125,36 +134,6 @@ Examples:
 - A game repo that already has many `documentation/*-definition.md` files can keep its structure unchanged. Version 1.1 only adds optional compatibility and harness-evolution guidance.
 - A public API surface can be adopted before the rest of the service. Write `docs/<api>-definition.md`, keep implementation notes out of it, and require endpoint tests to cover the documented response and failure behavior.
 - A performance-sensitive browse module can start with principles plus one concrete definition. The PR should include query-count, benchmark, or reproducible workload evidence for the adopted path.
-
-## Repository Layout
-
-```text
-AGENTS.md
-ADOPTION.md
-CHANGELOG.md
-POSITIONING.md
-VERSION
-documentation/
-  architecture.md
-  code-structure-principles.md
-  development-flow.md
-  documentation-definition.md
-  documentation-principles.md
-  harness-evolution-principles.md
-  programming-principles.md
-templates/
-  adopted-scope.template.md
-  architecture.template.md
-  existing-repo-documentation-definition.template.md
-  item-definition.template.md
-  principles.template.md
-  README-docs-section.template.md
-  system-definition.template.md
-.github/
-  PULL_REQUEST_TEMPLATE.md
-examples/
-  helpdesk-platform/
-```
 
 ## Quality Loop
 
