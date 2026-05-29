@@ -7,6 +7,7 @@ This document defines the documentation model and authoring rules for `documenta
 - Covers system and workflow documentation under `documentation/`.
 - `README.md` is governed separately for quickstart, setup, commands, and user/operator-facing workflows.
 - `AGENTS.md` is the entrypoint for agent instructions, not the full knowledge base.
+- `ADOPTION.md` governs compatibility and scoped adoption for existing repositories.
 
 ## Document Types
 
@@ -16,6 +17,10 @@ Not all files in `documentation/` are definitions or principles. The core docume
 - **Principle** (`*-principles.md`): stable rationale that shapes definitions and implementation decisions.
 - **Architecture reference** (`architecture.md`): high-level boundaries, ownership rules, dependency direction, and integration model.
 - **Process document** (`development-flow.md`): how work is planned, executed, verified, and closed.
+
+Related root-level documents:
+
+- `ADOPTION.md`: repository adoption modes, compatibility expectations, and stable-vs-temporary doc rules for existing repositories.
 
 ## Documentation Entities
 
@@ -85,6 +90,31 @@ Describes a specific workflow, interface surface, authored policy, or concrete i
 - `documentation/` for behavior, architecture, and process docs.
 - `README.md` for setup, commands, and user/operator-facing workflow instructions.
 - `AGENTS.md` for concise navigation and project instructions for agents.
+- `ADOPTION.md` for adopting the harness in new, existing, or partially adopted repositories.
+
+Adopting repositories may use `docs/` or another established docs path. If they do, keep references consistent and record the local path in `AGENTS.md` and the repo-local documentation definition.
+
+## Scoped Adoption
+
+Definition Harness may be adopted one scope at a time.
+
+- A scope can be a subsystem, workflow, API surface, operator process, or product area.
+- A repository does not need complete documentation coverage before one scope can adopt the harness.
+- Once a scope is adopted, its definitions, principles, tests, and validation expectations should be kept aligned consistently.
+- Existing full-adoption repositories that already use the `documentation/` model do not need to change structure for scoped adoption.
+
+## Temporary Planning Docs
+
+Temporary planning docs may exist, but they are not long-term behavior authority.
+
+Examples:
+
+- `*-context.md`
+- `*-implementation-guide.md`
+- `*-progress.md`
+- `IN_PROGRESS.md`
+
+Before closing work, move lasting behavior or rationale into definitions, principles, architecture docs, README, runbooks, or PR history.
 
 ## Update Rules
 
