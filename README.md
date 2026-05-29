@@ -22,11 +22,11 @@ When a user points you at this repository for project rules:
 
 Do not assume every adopting repository must immediately copy the full structure. Adoption is gradual by scope, not gradual by discipline.
 
-## Prompt Examples
+## Quick Start
 
 You can use Definition Harness without checking it out locally. Point your coding agent at this repository URL and tell it how you want to adopt the pattern.
 
-For a new repository:
+### New Repository
 
 ```text
 Use Definition Harness from <repo URL> as the documentation and development-flow pattern for this project.
@@ -36,7 +36,7 @@ Start by reading its README, ADOPTION.md, documentation/documentation-definition
 Then add the minimal starter files to this repo, adapt paths and validation commands to this project's stack, and create the first definition for the highest-risk subsystem.
 ```
 
-For an existing repository with partial or messy docs:
+### Existing Repository With Partial Or Messy Docs
 
 ```text
 Use Definition Harness 1.1 from <repo URL> in scoped-adoption mode.
@@ -46,7 +46,7 @@ Do not reorganize the whole docs tree. Keep this repo's existing docs path if it
 Pick one high-risk or high-change scope, add local documentation rules for stable vs temporary docs, create or update one behavior definition for that scope, and update tests/validation expectations around the observable claims.
 ```
 
-For a repository that already adopted an earlier version:
+### Repository That Already Adopted An Earlier Version
 
 ```text
 Review Definition Harness 1.1 from <repo URL> and apply only compatible improvements.
@@ -55,6 +55,16 @@ Do not rename documentation directories or rewrite existing definitions just to 
 
 Check whether scoped-adoption or harness-evolution guidance should be referenced by AGENTS.md, README.md, or local documentation rules, and report any compatibility impact before making changes.
 ```
+
+### Manual Checklist
+
+If you are applying the pattern by hand instead of through an agent:
+
+1. Copy only the starter files you need.
+2. Keep the target repo's existing docs path if it already has one.
+3. Add repo-specific validation commands to `AGENTS.md` and README.
+4. Create the first definition for a high-risk or high-change scope.
+5. Require PRs to report validation, risks, and documentation impact.
 
 ## Core Model
 
@@ -88,24 +98,6 @@ Version 1.1 adds:
 - `CHANGELOG.md`: version-level change notes
 - `VERSION`: current harness version marker
 
-## Quick Start
-
-For a new repo:
-
-1. Copy `AGENTS.md`, `documentation/`, `.github/PULL_REQUEST_TEMPLATE.md`, and optionally `templates/`.
-2. Rewrite `documentation/architecture.md` for the target system.
-3. Add one or two `*-definition.md` files for important product or platform domains.
-4. Add repo-specific validation commands to `AGENTS.md` and `README.md`.
-5. Require PRs to report validation, risks, and documentation changes.
-
-For an existing repo:
-
-1. Keep the repo's existing docs path if it already has one, such as `docs/`.
-2. Add local documentation rules using `templates/existing-repo-documentation-definition.template.md`.
-3. Pick one high-risk, high-change, or poorly explained scope.
-4. Adopt that scope using `templates/adopted-scope.template.md`.
-5. Repeat outward over time.
-
 ## Scoped Adoption
 
 Scoped adoption means a repository can adopt the harness one subsystem, workflow, API surface, operator process, or product area at a time.
@@ -126,6 +118,13 @@ For rationale-only scopes, use `*-principles.md`. For boundary or ownership chan
 Temporary planning docs such as `*-context.md`, `*-implementation-guide.md`, `*-progress.md`, and `IN_PROGRESS.md` may support work, but they should not become long-term behavior authority.
 
 See `ADOPTION.md` for the full model.
+
+Examples:
+
+- A mature Django app with years of mixed docs can keep `docs/`, then adopt only the homepage splash selector first. That scope gets `docs/homepage-splash-definition.md`, validation expectations, and a rule that future splash behavior changes update the definition.
+- A game repo that already has many `documentation/*-definition.md` files can keep its structure unchanged. Version 1.1 only adds optional compatibility and harness-evolution guidance.
+- A public API surface can be adopted before the rest of the service. Write `docs/<api>-definition.md`, keep implementation notes out of it, and require endpoint tests to cover the documented response and failure behavior.
+- A performance-sensitive browse module can start with principles plus one concrete definition. The PR should include query-count, benchmark, or reproducible workload evidence for the adopted path.
 
 ## Repository Layout
 
