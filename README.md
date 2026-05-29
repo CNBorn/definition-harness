@@ -1,6 +1,6 @@
 # Definition Harness
 
-Version: 1.1.0
+Current version is tracked in `VERSION`.
 
 Definition Harness is a spec-anchored repository harness for keeping software behavior, intent, tests, and operator-facing instructions aligned over time.
 
@@ -39,7 +39,7 @@ Then add the minimal starter files to this repo, adapt paths and validation comm
 ### Existing Repository With Partial Or Messy Docs
 
 ```text
-Use Definition Harness 1.1 from <repo URL> in scoped-adoption mode.
+Use Definition Harness from <repo URL> in scoped-adoption mode.
 
 Do not reorganize the whole docs tree. Keep this repo's existing docs path if it has one.
 
@@ -49,7 +49,7 @@ Pick one high-risk or high-change scope, add local documentation rules for stabl
 ### Scoped Adoption For One Existing Scope
 
 ```text
-Use Definition Harness 1.1 from <repo URL> to adopt only <scope name> in this existing repository.
+Use Definition Harness from <repo URL> to adopt only <scope name> in this existing repository.
 
 First inspect the current docs, code, tests, AGENTS.md, README, and PR template. Do not reorganize unrelated docs or adopt the whole repo.
 
@@ -59,7 +59,7 @@ Create or update the local documentation rules so <scope name> is listed as an a
 ### Repository That Already Adopted An Earlier Version
 
 ```text
-Review Definition Harness 1.1 from <repo URL> and apply only compatible improvements.
+Review Definition Harness from <repo URL> and apply only compatible improvements.
 
 Do not rename documentation directories or rewrite existing definitions just to match the new version.
 
@@ -118,7 +118,7 @@ For an existing repo, the agent should usually add less:
 - optional principles for stable rationale
 - minimal `AGENTS.md`, README, or PR-template routing updates
 
-Existing repositories that already use the earlier `documentation/` model do not need to rename directories, rewrite definitions, or restructure their docs for version 1.1.
+Existing repositories that already use the earlier `documentation/` model do not need to rename directories, rewrite definitions, or restructure their docs for the current version.
 
 ## Scoped Adoption
 
@@ -131,7 +131,7 @@ For that adopted scope, define the current behavior, set validation expectations
 Examples:
 
 - A mature Django app with years of mixed docs can keep `docs/`, then adopt only the homepage splash selector first. That scope gets `docs/homepage-splash-definition.md`, validation expectations, and a rule that future splash behavior changes update the definition.
-- A game repo that already has many `documentation/*-definition.md` files can keep its structure unchanged. Version 1.1 only adds optional compatibility and harness-evolution guidance.
+- A game repo that already has many `documentation/*-definition.md` files can keep its structure unchanged. The current version only adds optional compatibility and harness-evolution guidance.
 - A public API surface can be adopted before the rest of the service. Write `docs/<api>-definition.md`, keep implementation notes out of it, and require endpoint tests to cover the documented response and failure behavior.
 - A performance-sensitive browse module can start with principles plus one concrete definition. The PR should include query-count, benchmark, or reproducible workload evidence for the adopted path.
 

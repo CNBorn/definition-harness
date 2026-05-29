@@ -10,7 +10,9 @@
 
 ## Docs
 
-## Compatibility
+Explain what documentation changed, or state why no documentation changes were needed.
+
+### Compatibility
 
 If this changes harness rules or templates, explain whether existing adopted repositories need to migrate.
 
