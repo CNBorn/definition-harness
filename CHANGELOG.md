@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.2.0
 
 - Add a vendor-neutral repository contract for delegated agent work.
 - Define initializer, implementer, evaluator, and closer as work roles rather than runtime components.
