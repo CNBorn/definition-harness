@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- Add a vendor-neutral repository contract for long-running agent-assisted work.
+- Define initializer, implementer, evaluator, and closer as work roles rather than runtime components.
+- Add progress, acceptance-contract, and evaluation-definition guidance for external agent harnesses.
+- Add templates for long-running progress, acceptance contracts, and evaluation definitions.
+- Update the PR template to capture evaluation evidence and long-running artifact closure.
+
 ## 1.1.0
 
 - Add scoped adoption guidance for existing and partially adopted repositories.

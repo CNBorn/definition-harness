@@ -17,6 +17,7 @@ Not all files in `documentation/` are definitions or principles. The core docume
 - **Principle** (`*-principles.md`): stable rationale that shapes definitions and implementation decisions.
 - **Architecture reference** (`architecture.md`): high-level boundaries, ownership rules, dependency direction, and integration model.
 - **Process document** (`development-flow.md`): how work is planned, executed, verified, and closed.
+- **Evaluation definition** (`*-evaluation-definition.md`): stable criteria, commands, scenarios, tools, or evidence expectations used to evaluate a behavior scope.
 
 Related root-level documents:
 
@@ -109,12 +110,39 @@ Temporary planning docs may exist, but they are not long-term behavior authority
 
 Examples:
 
+- `*-acceptance-contract.md`
 - `*-context.md`
 - `*-implementation-guide.md`
 - `*-progress.md`
 - `IN_PROGRESS.md`
 
 Before closing work, move lasting behavior or rationale into definitions, principles, architecture docs, README, runbooks, or PR history.
+
+### Acceptance Contracts
+
+An acceptance contract describes the intended completion criteria for a specific piece of work.
+
+- It may include future-facing criteria while the work is active.
+- It is temporary unless the repository explicitly promotes it to a stable process or evaluation definition.
+- Before closure, current behavior belongs in `*-definition.md`; stable evaluation rules belong in `*-evaluation-definition.md`; one-time decisions belong in PR history.
+
+### Progress And Handoff Artifacts
+
+Progress artifacts record active execution state for multi-step or long-running work.
+
+- Use `IN_PROGRESS.md` for short-lived active work state or as an index to the current `*-progress.md` file.
+- Use `*-progress.md` when the work needs detailed checkpoints, validation logs, handoff notes, or next-action guidance.
+- Progress artifacts must name the latest known state, not rely on chat history.
+- Delete temporary progress artifacts when the work is complete, unless they are intentionally kept as historical records.
+
+### Evaluation Definitions
+
+Evaluation definitions describe stable validation expectations for a behavior scope.
+
+- Use them when a scope needs more than ordinary unit or integration tests to evaluate correctness.
+- They may describe scenario tests, browser checks, screenshots, logs, benchmark workloads, manual review criteria, or domain-specific graders.
+- They should define what evidence is required, not prescribe a specific vendor runtime unless the repository has standardized on one.
+- They complement behavior definitions; they do not replace them.
 
 ## Update Rules
 

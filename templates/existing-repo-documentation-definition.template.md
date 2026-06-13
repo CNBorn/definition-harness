@@ -18,8 +18,10 @@ This document defines the documentation model and update rules for `<docs path>`
 
 - `*-definition.md`: current behavior, constraints, contracts, and observable outcomes.
 - `*-principles.md`: stable rationale that guides future definitions and implementation decisions.
+- `*-evaluation-definition.md`: stable criteria, commands, scenarios, tools, or evidence expectations used to evaluate a behavior scope.
 - `architecture.md`: boundaries, ownership, dependency direction, and lifecycle invariants.
 - `development-flow.md`: planning, validation, documentation, and PR closure rules.
+- `agent-workflow-definition.md`: repository-side contract for long-running agent-assisted work.
 - runbooks: operational procedures and incident response instructions.
 
 Stable docs are allowed to be partial. They are authoritative only for their stated scope.
@@ -28,10 +30,13 @@ Stable docs are allowed to be partial. They are authoritative only for their sta
 
 - `*-context.md`: feature background, requirements, options, and planning decisions.
 - `*-implementation-guide.md`: execution instructions for a specific implementation slice.
+- `*-acceptance-contract.md`: completion criteria for a specific active work item.
 - `*-progress.md`: active work tracking, handoff notes, blockers, and validation logs.
 - `IN_PROGRESS.md`: short-lived state for active multi-step work.
 
 Temporary docs may support work, but they must not become long-term behavior authority. Before closing a feature, move lasting behavior or rationale into the relevant stable docs, README, runbooks, or PR history.
+
+For long-running agent-assisted work, `IN_PROGRESS.md` may be used as a short active-work index that points to a detailed `*-progress.md` artifact. Progress artifacts should capture enough state for another capable worker to resume without relying on chat history.
 
 ## Adopted Scopes
 
@@ -47,6 +52,7 @@ List each scope that has adopted Definition Harness rules.
 - Update `*-definition.md` when current behavior changes.
 - Update `*-principles.md` when stable rationale changes.
 - Add or update tests around observable claims in definitions.
+- Add or update `*-evaluation-definition.md` only when the scope needs stable scenario, visual, workload, or operational evidence beyond ordinary tests.
 - Record validation commands and documentation impact in the PR.
 - Keep implementation steps, file inventories, migration history, and unresolved options out of definitions.
 
@@ -70,6 +76,8 @@ Update `README.md` when setup steps, commands, user workflows, operator workflow
 
 - Behavior changes in adopted scopes are reflected in matching definitions.
 - Stable rationale changes are reflected in matching principles.
+- Stable evaluation criteria changes are reflected in matching evaluation definitions.
 - Temporary planning docs are cleaned up or marked as historical.
+- Long-running progress artifacts are resolved or up to date.
 - Validation commands were run and recorded.
 - README and architecture docs were checked for relevance.
