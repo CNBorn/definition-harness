@@ -18,6 +18,14 @@ Before closure, move durable behavior into `*-definition.md`, stable evaluation 
 - [ ] `<observable criterion>`
 - [ ] `<observable criterion>`
 
+## Long-Running Goal Shape
+
+- `Outcome`: `<desired end state>`
+- `Verification`: `<how completion is proven>`
+- `Constraints`: `<what may or may not change>`
+- `Iteration policy`: `<what to record or reconsider after each attempt>`
+- `Error handling`: `<when to stop and report instead of continuing>`
+
 ## Required Evidence
 
 - `<test command, scenario, screenshot, benchmark, log, or review evidence>`

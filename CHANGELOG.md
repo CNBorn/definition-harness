@@ -6,6 +6,7 @@
 - Define initializer, implementer, evaluator, and closer as work roles rather than runtime components.
 - Add progress, acceptance-contract, and evaluation-definition guidance for external agent harnesses.
 - Add templates for long-running progress, acceptance contracts, and evaluation definitions.
+- Expand evaluation guidance for rubric-based review, baseline examples, anti-patterns, and evaluator calibration.
 - Update the PR template to capture evaluation evidence and long-running artifact closure.
 
 ## 1.1.0

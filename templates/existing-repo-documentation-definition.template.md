@@ -52,7 +52,8 @@ List each scope that has adopted Definition Harness rules.
 - Update `*-definition.md` when current behavior changes.
 - Update `*-principles.md` when stable rationale changes.
 - Add or update tests around observable claims in definitions.
-- Add or update `*-evaluation-definition.md` only when the scope needs stable scenario, visual, workload, or operational evidence beyond ordinary tests.
+- Add or update `*-evaluation-definition.md` only when the scope needs stable scenario, visual, workload, rubric, or operational evidence beyond ordinary tests.
+- Ground judgment-heavy rubrics in real examples, repeated failures, or review feedback.
 - Record validation commands and documentation impact in the PR.
 - Keep implementation steps, file inventories, migration history, and unresolved options out of definitions.
 

@@ -141,8 +141,10 @@ Evaluation definitions describe stable validation expectations for a behavior sc
 
 - Use them when a scope needs more than ordinary unit or integration tests to evaluate correctness.
 - They may describe scenario tests, browser checks, screenshots, logs, benchmark workloads, manual review criteria, or domain-specific graders.
+- For judgment-heavy work, they may define rubric dimensions, weights, positive examples, anti-patterns, baseline failures, and evaluator calibration notes.
 - They should define what evidence is required, not prescribe a specific vendor runtime unless the repository has standardized on one.
 - They complement behavior definitions; they do not replace them.
+- They should be created from repeated review needs or real failure patterns, not from speculative process preferences.
 
 ## Update Rules
 

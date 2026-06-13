@@ -19,7 +19,7 @@ Make `<scope>` easier for humans and agents to change by giving it durable behav
 2. Identify whether the repo already has local documentation rules.
 3. Create or update `<docs path>/<scope>-definition.md` for current behavior.
 4. Create or update `<docs path>/<scope>-principles.md` only if stable rationale needs to guide future changes.
-5. Create or update `<docs path>/<scope>-evaluation-definition.md` only if stable scenario, visual, workload, or operational evidence needs to be defined.
+5. Create or update `<docs path>/<scope>-evaluation-definition.md` only if stable scenario, visual, workload, rubric, or operational evidence needs to be defined.
 6. Add `<scope>` to the adopted-scope list in the repo-local documentation rules.
 7. Add or update tests for the observable claims in the definition.
 8. Update `AGENTS.md` only if agents need a new routing rule, validation command, or long-running work convention.
@@ -51,6 +51,7 @@ The definition should not include:
 - The adopted scope has at least one stable definition.
 - Any needed principles are captured separately.
 - Any needed evaluation criteria are captured separately.
+- Any judgment-heavy rubric is grounded in real examples, repeated failures, or review feedback.
 - Tests or validation targets align with the definition's observable claims.
 - The repo-local documentation rules list the scope as adopted.
 - Temporary planning docs are not the only place where lasting behavior is described.

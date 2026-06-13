@@ -81,6 +81,7 @@ If you are applying the pattern by hand instead of through an agent:
 
 - `*-definition.md` files describe current behavior, constraints, contracts, and observable outcomes.
 - `*-principles.md` files describe stable rationale that should guide future decisions.
+- `*-evaluation-definition.md` files describe stable evidence, scenario, workload, or rubric expectations when ordinary tests are not enough.
 - `architecture.md` describes boundaries, ownership, dependency direction, and lifecycle invariants.
 - `development-flow.md` defines when planning, docs, tests, validation, and PR closure must be checked together.
 - `agent-workflow-definition.md` defines the repository-side contract for long-running agent-assisted work.
@@ -102,6 +103,7 @@ Adoption should leave the target repository with a small set of explicit boundar
 - which docs are stable authority and which are temporary planning notes
 - which scopes are adopted now, and which remain under existing repo practice
 - which validation commands prove changes in adopted scopes
+- which scopes need companion evaluation definitions for scenario, visual, workload, rubric, or operational evidence
 - which progress, acceptance, or evaluation artifacts are used for long-running work
 - when `AGENTS.md`, README, architecture docs, definitions, principles, and tests must be updated
 

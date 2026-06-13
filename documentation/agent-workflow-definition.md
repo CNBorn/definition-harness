@@ -52,8 +52,9 @@ The implementer changes the repository in focused slices.
 The evaluator checks the result independently from implementation.
 
 - Verifies behavior against definitions and acceptance criteria.
-- Runs or reviews validation commands, scenario checks, screenshots, logs, benchmark evidence, or other required evaluation artifacts.
+- Runs or reviews validation commands, scenario checks, screenshots, logs, benchmark evidence, rubric scores, or other required evaluation artifacts.
 - Identifies documentation drift, untested claims, broken workflows, and unresolved risks.
+- Calibrates rubric-based judgments against human review when the evaluation depends on taste, quality, usability, or other judgment-heavy criteria.
 - Records findings in the progress artifact, PR, issue, or review system used by the repository.
 
 ### Closer Role
@@ -94,9 +95,37 @@ Examples:
 - browser or UI scenario checks
 - screenshots or videos for visual workflows
 - logs or traces for operational behavior
+- rubric scores and reviewer rationale for judgment-heavy behavior
 - manual review notes for judgment-heavy behavior
 
 The repository should specify required evidence in the relevant definition, evaluation definition, development flow, README, or PR template.
+
+## Rubric-Based Evaluation
+
+Use rubric-based evaluation when correctness depends on quality judgments that ordinary tests cannot express, such as design quality, originality, writing quality, usability, support response quality, or operator judgment.
+
+A stable rubric should include:
+
+- baseline examples that show the current evaluator target or failure mode
+- scoring dimensions with clear definitions
+- criteria that are observable in the artifact being reviewed
+- examples of acceptable outputs and anti-patterns
+- any weights or priority rules that correct known model or team tendencies
+- calibration notes that compare evaluator judgments against human review
+
+Rubrics should be earned from review experience. Do not create broad taste rules before seeing real outputs or repeated failure patterns.
+
+## Long-Running Goal Shape
+
+When a task is delegated to an external long-running agent harness, the goal should include:
+
+- `Outcome`: the desired end state.
+- `Verification`: how completion is proven.
+- `Constraints`: what may or may not change.
+- `Iteration policy`: what to record or reconsider after each attempt.
+- `Error handling`: when to stop and report instead of continuing.
+
+These fields can live in an acceptance contract, a progress artifact, or an external harness prompt. Durable behavior still belongs in definitions, and stable evaluation rules belong in evaluation definitions.
 
 ## Non-goals
 

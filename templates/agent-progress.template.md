@@ -43,6 +43,13 @@ Delete it when the work is complete, unless the repository intentionally keeps i
 | --- | --- | --- | --- |
 | `<YYYY-MM-DD>` | `<command>` | `<pass/fail/not run>` | `<notes>` |
 
+## Evaluation Notes
+
+- Rubric or evaluation definition used: `<path or n/a>`
+- Latest evaluator result: `<pass/fail/score/not run>`
+- Human calibration needed: `<yes/no and why>`
+- Failure patterns found: `<summary or none>`
+
 ## Files Or Areas Touched
 
 - `<path or area>`: `<why it changed>`

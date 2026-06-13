@@ -44,6 +44,7 @@ Expected shape:
 - adopted scopes are listed in the repo-local documentation rules
 - each adopted behavior scope has a `*-definition.md`
 - stable rationale uses `*-principles.md` when the rationale matters beyond one PR
+- companion evaluation definitions are added only when a scope needs stable scenario, visual, workload, rubric, or operational evidence
 - temporary planning docs are allowed, but they do not become long-term behavior authority
 
 Scoped adoption is the recommended path for legacy repositories.
@@ -84,7 +85,8 @@ For a behavior scope:
 4. Add or update tests around the observable claims.
 5. Record validation commands and documentation impact in the PR.
 6. Update the definition when behavior changes later.
-7. Add an evaluation definition only when the scope needs stable scenario, visual, workload, or operational evidence beyond ordinary tests.
+7. Add an evaluation definition only when the scope needs stable scenario, visual, workload, rubric, or operational evidence beyond ordinary tests.
+8. For judgment-heavy scopes, base rubric criteria on real review feedback, baseline outputs, or repeated failure patterns.
 
 For a rationale-only scope:
 
@@ -102,7 +104,8 @@ For long-running work:
 1. Use a progress artifact when work spans multiple sessions, context windows, agents, or unattended execution periods.
 2. Treat initializer, implementer, evaluator, and closer as work roles, not required agent processes.
 3. Keep acceptance contracts temporary unless their criteria become stable evaluation rules.
-4. Resolve progress artifacts before closure by deleting them, marking them historical, or moving durable knowledge into stable docs.
+4. Include outcome, verification, constraints, iteration policy, and error handling in the active goal or acceptance contract.
+5. Resolve progress artifacts before closure by deleting them, marking them historical, or moving durable knowledge into stable docs.
 
 ## Existing Docs Policy
 
