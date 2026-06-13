@@ -51,12 +51,64 @@ For work that spans multiple steps or sessions, use `IN_PROGRESS.md` to track:
 
 Keep it current during execution and delete it when the work is complete.
 
+For larger work, `IN_PROGRESS.md` may act as a short active-work index that points to a more detailed `*-progress.md` artifact. Do not let active progress notes become long-term behavior authority; move durable behavior into definitions before closure.
+
+## Delegated Agent Work
+
+Use this flow when work is delegated to an agent or external harness and requires attention-independent progress, multiple implementation/evaluation iterations, handoff, unattended execution, or work across multiple context windows, sessions, or agents.
+
+### Repository Contract
+
+Delegated agent work should leave enough state in the repository for another capable worker to resume without relying on chat history.
+
+Before implementation, create or update the relevant progress artifact with:
+
+- goal and non-goals
+- affected definitions or adopted scopes
+- current implementation state
+- planned slices
+- validation commands
+- open questions and blockers
+- latest handoff note
+
+### Work Roles
+
+The following roles are responsibility boundaries, not required runtime components:
+
+- `Initializer`: reads repo guidance, maps the affected scope, confirms commands, creates or updates the progress artifact, and identifies the first safe slice.
+- `Implementer`: makes a focused change, updates tests and docs for that slice, and records what changed.
+- `Evaluator`: independently checks behavior, validation output, docs alignment, and user/operator impact. The evaluator may be a human, CI job, browser automation, external agent, or test harness.
+- `Closer`: confirms temporary artifacts are resolved, moves durable knowledge into stable docs, records validation, and leaves the worktree ready for review.
+
+One person or agent may perform multiple roles, but the responsibilities should remain separable in the artifacts.
+
+### Iteration Loop
+
+1. Read `AGENTS.md`, the relevant definitions, `development-flow.md`, and the active progress artifact.
+2. Select one implementation slice with an observable validation path.
+3. Implement the slice and update tests, docs, or operator instructions in the same change when needed.
+4. Run targeted validation before broad validation.
+5. Record validation results, remaining risks, and next recommended slice.
+6. Re-evaluate scope before starting the next slice.
+
+### End-Of-Session State
+
+Before pausing or handing off delegated work:
+
+- record what changed since the last handoff
+- record commands run and results
+- list uncommitted files and why they are still uncommitted
+- identify the next safe action
+- identify any decisions that need human input
+- keep the repository buildable or state clearly why it is not
+
 ## Required Pre-Merge Checks
 
 - Behavior is implemented and verified.
 - Unit-testable or integration-testable changes have adequate coverage.
 - Behavior docs are updated and aligned with the current implementation.
 - Performance or reliability changes include before/after evidence when relevant.
+- Delegated work has an up-to-date progress or handoff artifact when it is not complete.
 - Validation commands pass.
 - Architecture docs are updated only when boundary or ownership changes require it.
 - Temporary planning artifacts are cleaned up.

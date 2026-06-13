@@ -18,7 +18,8 @@ When a user points you at this repository for project rules:
 2. Read `ADOPTION.md` when the target repo is old, partially documented, or already has `docs/`.
 3. Read `documentation/documentation-definition.md` for document types and update rules.
 4. Read `documentation/development-flow.md` for planning, validation, and PR closure.
-5. Use templates from `templates/` only after adapting paths and validation commands to the target repo.
+5. Read `documentation/agent-workflow-definition.md` when work is delegated to an agent and may require multiple iterations, handoff, unattended execution, or human-attention-light progress.
+6. Use templates from `templates/` only after adapting paths and validation commands to the target repo.
 
 Do not assume every adopting repository must immediately copy the full structure. Adoption is gradual by scope, not gradual by discipline.
 
@@ -80,8 +81,10 @@ If you are applying the pattern by hand instead of through an agent:
 
 - `*-definition.md` files describe current behavior, constraints, contracts, and observable outcomes.
 - `*-principles.md` files describe stable rationale that should guide future decisions.
+- `*-evaluation-definition.md` files describe stable evidence, scenario, workload, or rubric expectations when ordinary tests are not enough.
 - `architecture.md` describes boundaries, ownership, dependency direction, and lifecycle invariants.
 - `development-flow.md` defines when planning, docs, tests, validation, and PR closure must be checked together.
+- `agent-workflow-definition.md` defines the repository-side contract for delegated agent work.
 - `AGENTS.md` is a concise map for agents, not the full knowledge base.
 
 The governing idea is three-pillar independence:
@@ -100,6 +103,8 @@ Adoption should leave the target repository with a small set of explicit boundar
 - which docs are stable authority and which are temporary planning notes
 - which scopes are adopted now, and which remain under existing repo practice
 - which validation commands prove changes in adopted scopes
+- which scopes need companion evaluation definitions for scenario, visual, workload, rubric, or operational evidence
+- which progress, acceptance, or evaluation artifacts are used for delegated agent work
 - when `AGENTS.md`, README, architecture docs, definitions, principles, and tests must be updated
 
 For a new repo, the agent usually adds starter docs such as:
@@ -107,6 +112,7 @@ For a new repo, the agent usually adds starter docs such as:
 - `AGENTS.md`
 - `documentation/documentation-definition.md`
 - `documentation/development-flow.md`
+- `documentation/agent-workflow-definition.md`
 - `documentation/architecture.md`
 - one first `*-definition.md`
 - a PR template with Docs and Validation sections
@@ -116,6 +122,7 @@ For an existing repo, the agent should usually add less:
 - local documentation rules for the existing docs path
 - one adopted-scope definition
 - optional principles for stable rationale
+- optional evaluation definitions for scopes that need explicit scenario, visual, workload, or operational evidence
 - minimal `AGENTS.md`, README, or PR-template routing updates
 
 Existing repositories that already use the earlier `documentation/` model do not need to rename directories, rewrite definitions, or restructure their docs for the current version.
@@ -151,12 +158,29 @@ Each adopting repository should define its own native quality loop:
 
 The docs preserve intent and behavior. The toolchain helps prevent silent drift.
 
+## Use With Agent Harnesses
+
+Definition Harness is not an agent runtime. It does not provide model routing, tool loops, schedulers, sandboxes, approval systems, or evaluator services.
+
+It is the repository contract that makes delegated agent work safer, more resumable, and easier to review. External tools can execute against:
+
+- concise `AGENTS.md` routing
+- stable definitions and principles
+- architecture and development-flow rules
+- progress and handoff artifacts
+- acceptance contracts
+- evaluation definitions
+- validation and closure expectations
+
+When the harness describes initializer, implementer, evaluator, or closer roles, those are work roles. They may be performed by one agent, multiple agents, a human operator, CI, browser automation, or an external agent framework.
+
 ## More Detail
 
 - `ADOPTION.md`: how to adopt gradually while preserving compatibility
 - `CHANGELOG.md`: version-level changes
 - `POSITIONING.md`: why this exists and how it differs from disposable spec workflows
 - `examples/helpdesk-platform/`: non-game example documentation
+- `documentation/agent-workflow-definition.md`: repo-side contract for delegated agent work
 - `documentation/documentation-definition.md`: document types, naming, and update rules
 - `documentation/development-flow.md`: planning, validation, and PR closure
 - `documentation/harness-evolution-principles.md`: compatibility rules for evolving this harness
