@@ -60,7 +60,7 @@ Stable docs:
 - `*-evaluation-definition.md`: stable criteria, commands, scenarios, tools, or evidence expectations used to evaluate a behavior scope
 - `architecture.md`: boundaries, ownership, dependency direction, and lifecycle invariants
 - `development-flow.md`: planning, validation, documentation, and PR closure rules
-- `agent-workflow-definition.md`: repository-side contract for long-running agent-assisted work
+- `agent-workflow-definition.md`: repository-side contract for delegated agent work
 - runbooks: operator procedures and incident response instructions
 
 Temporary docs:
@@ -73,7 +73,7 @@ Temporary docs:
 
 Temporary docs may support work, but stable behavior should be moved into definitions, principles, architecture docs, runbooks, README, or PR history before the work is considered closed.
 
-For long-running agent-assisted work, `IN_PROGRESS.md` may act as a short active-work index that points to a detailed `*-progress.md` artifact. The progress artifact should capture enough state for another capable worker to resume without relying on chat history.
+For delegated agent work, `IN_PROGRESS.md` may act as a short active-work index that points to a detailed `*-progress.md` artifact. The progress artifact should capture enough state for another capable worker to resume without relying on chat history.
 
 ## Minimum Rule For An Adopted Scope
 
@@ -99,9 +99,9 @@ For an architecture scope:
 1. Update `architecture.md` only when boundaries, ownership, dependency direction, or lifecycle invariants change.
 2. Keep routine implementation detail in code, definitions, tests, or PR history.
 
-For long-running work:
+For delegated agent work:
 
-1. Use a progress artifact when work spans multiple sessions, context windows, agents, or unattended execution periods.
+1. Use a progress artifact when work needs attention-independent progress, multiple implementation/evaluation iterations, handoff, unattended execution, or work across multiple sessions, context windows, or agents.
 2. Treat initializer, implementer, evaluator, and closer as work roles, not required agent processes.
 3. Keep acceptance contracts temporary unless their criteria become stable evaluation rules.
 4. Include outcome, verification, constraints, iteration policy, and error handling in the active goal or acceptance contract.
@@ -131,7 +131,7 @@ For scoped adoption, `AGENTS.md` should name:
 - the adopted scopes or where to find them
 - the validation commands expected for common changes
 - any deployment or migration guardrails
-- any long-running work conventions used by external agent harnesses
+- any delegated agent work conventions used by external agent harnesses
 
 Avoid moving full subsystem behavior into `AGENTS.md`. Put stable behavior in definitions.
 
@@ -141,7 +141,7 @@ Before a PR is ready:
 
 - docs, code, and tests agree for any adopted scope
 - temporary planning docs are either cleaned up or clearly marked as historical
-- long-running progress artifacts are resolved or up to date
+- delegated-work progress artifacts are resolved or up to date
 - validation commands and results are recorded
 - README is updated when setup, commands, user workflows, or operator workflows change
 - architecture docs are updated only when boundaries or ownership changed

@@ -128,7 +128,7 @@ An acceptance contract describes the intended completion criteria for a specific
 
 ### Progress And Handoff Artifacts
 
-Progress artifacts record active execution state for multi-step or long-running work.
+Progress artifacts record active execution state for delegated or multi-step work, including long-running cases.
 
 - Use `IN_PROGRESS.md` for short-lived active work state or as an index to the current `*-progress.md` file.
 - Use `*-progress.md` when the work needs detailed checkpoints, validation logs, handoff notes, or next-action guidance.

@@ -1,6 +1,6 @@
 # <Work Name> Progress
 
-Use this file for active long-running work that spans multiple sessions, context windows, agents, or unattended execution periods.
+Use this file for active delegated agent work that needs attention-independent progress, multiple implementation/evaluation iterations, handoff, unattended execution, or work across multiple sessions, context windows, or agents.
 
 Delete it when the work is complete, unless the repository intentionally keeps it as a historical record.
 

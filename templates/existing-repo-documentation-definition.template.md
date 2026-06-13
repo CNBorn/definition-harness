@@ -21,7 +21,7 @@ This document defines the documentation model and update rules for `<docs path>`
 - `*-evaluation-definition.md`: stable criteria, commands, scenarios, tools, or evidence expectations used to evaluate a behavior scope.
 - `architecture.md`: boundaries, ownership, dependency direction, and lifecycle invariants.
 - `development-flow.md`: planning, validation, documentation, and PR closure rules.
-- `agent-workflow-definition.md`: repository-side contract for long-running agent-assisted work.
+- `agent-workflow-definition.md`: repository-side contract for delegated agent work.
 - runbooks: operational procedures and incident response instructions.
 
 Stable docs are allowed to be partial. They are authoritative only for their stated scope.
@@ -36,7 +36,7 @@ Stable docs are allowed to be partial. They are authoritative only for their sta
 
 Temporary docs may support work, but they must not become long-term behavior authority. Before closing a feature, move lasting behavior or rationale into the relevant stable docs, README, runbooks, or PR history.
 
-For long-running agent-assisted work, `IN_PROGRESS.md` may be used as a short active-work index that points to a detailed `*-progress.md` artifact. Progress artifacts should capture enough state for another capable worker to resume without relying on chat history.
+For delegated agent work, `IN_PROGRESS.md` may be used as a short active-work index that points to a detailed `*-progress.md` artifact. Progress artifacts should capture enough state for another capable worker to resume without relying on chat history.
 
 ## Adopted Scopes
 
@@ -79,6 +79,6 @@ Update `README.md` when setup steps, commands, user workflows, operator workflow
 - Stable rationale changes are reflected in matching principles.
 - Stable evaluation criteria changes are reflected in matching evaluation definitions.
 - Temporary planning docs are cleaned up or marked as historical.
-- Long-running progress artifacts are resolved or up to date.
+- Delegated-work progress artifacts are resolved or up to date.
 - Validation commands were run and recorded.
 - README and architecture docs were checked for relevance.

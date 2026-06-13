@@ -53,13 +53,13 @@ Keep it current during execution and delete it when the work is complete.
 
 For larger work, `IN_PROGRESS.md` may act as a short active-work index that points to a more detailed `*-progress.md` artifact. Do not let active progress notes become long-term behavior authority; move durable behavior into definitions before closure.
 
-## Long-Running Agent Work
+## Delegated Agent Work
 
-Use this flow when work is expected to run across multiple context windows, sessions, agents, or unattended execution periods.
+Use this flow when work is delegated to an agent or external harness and requires attention-independent progress, multiple implementation/evaluation iterations, handoff, unattended execution, or work across multiple context windows, sessions, or agents.
 
 ### Repository Contract
 
-Long-running work should leave enough state in the repository for another capable worker to resume without relying on chat history.
+Delegated agent work should leave enough state in the repository for another capable worker to resume without relying on chat history.
 
 Before implementation, create or update the relevant progress artifact with:
 
@@ -93,7 +93,7 @@ One person or agent may perform multiple roles, but the responsibilities should 
 
 ### End-Of-Session State
 
-Before pausing or handing off long-running work:
+Before pausing or handing off delegated work:
 
 - record what changed since the last handoff
 - record commands run and results
@@ -108,7 +108,7 @@ Before pausing or handing off long-running work:
 - Unit-testable or integration-testable changes have adequate coverage.
 - Behavior docs are updated and aligned with the current implementation.
 - Performance or reliability changes include before/after evidence when relevant.
-- Long-running work has an up-to-date progress or handoff artifact when it is not complete.
+- Delegated work has an up-to-date progress or handoff artifact when it is not complete.
 - Validation commands pass.
 - Architecture docs are updated only when boundary or ownership changes require it.
 - Temporary planning artifacts are cleaned up.

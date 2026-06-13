@@ -18,7 +18,7 @@ Before closure, move durable behavior into `*-definition.md`, stable evaluation 
 - [ ] `<observable criterion>`
 - [ ] `<observable criterion>`
 
-## Long-Running Goal Shape
+## Delegated Goal Shape
 
 - `Outcome`: `<desired end state>`
 - `Verification`: `<how completion is proven>`

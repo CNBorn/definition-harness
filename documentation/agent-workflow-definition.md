@@ -1,22 +1,22 @@
 # Agent Workflow Definition
 
-This document defines the repository-side contract for long-running agent-assisted work.
+This document defines the repository-side contract for delegated agent work.
 
 ## Scope
 
-- Covers artifacts, responsibility boundaries, and closure rules that help humans or external agent harnesses resume, evaluate, and review work.
-- Applies when a task spans multiple context windows, sessions, agents, or unattended execution periods.
+- Covers artifacts, responsibility boundaries, and closure rules that help humans or external agent harnesses resume, evaluate, and review delegated work.
+- Applies when a task requires attention-independent progress, multiple implementation/evaluation iterations, handoff, unattended execution, or work across multiple context windows, sessions, or agents.
 - Does not define an agent runtime, model provider, tool loop, scheduler, sandbox, approval system, or observability backend.
 
 ## Behavior Summary
 
-Definition Harness makes long-running agent work safer by keeping durable knowledge and active execution state in repository files.
+Definition Harness makes delegated agent work safer by keeping durable knowledge, active execution state, and evaluation expectations in repository files.
 
 External harnesses may use coding-agent products, orchestration frameworks, custom scripts, CI jobs, browser automation, or human operators. The repository contract stays vendor-neutral.
 
 ## Core Rules
 
-- Long-running work must not depend on chat history as the only source of state.
+- Delegated work must not depend on chat history as the only source of state.
 - `AGENTS.md` remains a concise map to repository rules, not a full subsystem manual.
 - Stable behavior belongs in `*-definition.md`.
 - Stable rationale belongs in `*-principles.md`.
@@ -31,7 +31,7 @@ The following roles are responsibility boundaries, not required agent processes.
 
 ### Initializer Role
 
-The initializer establishes the starting state for long-running work.
+The initializer establishes the starting state for delegated work.
 
 - Reads `AGENTS.md`, `README.md`, `documentation/documentation-definition.md`, `documentation/development-flow.md`, and relevant scope docs.
 - Identifies affected definitions, principles, architecture docs, README sections, tests, and validation commands.
@@ -115,9 +115,9 @@ A stable rubric should include:
 
 Rubrics should be earned from review experience. Do not create broad taste rules before seeing real outputs or repeated failure patterns.
 
-## Long-Running Goal Shape
+## Delegated Goal Shape
 
-When a task is delegated to an external long-running agent harness, the goal should include:
+When a task is delegated to an external agent harness, the goal should include:
 
 - `Outcome`: the desired end state.
 - `Verification`: how completion is proven.
@@ -132,4 +132,4 @@ These fields can live in an acceptance contract, a progress artifact, or an exte
 - No vendor-specific agent orchestration.
 - No required multi-agent implementation.
 - No replacement for CI, tests, code review, or operational runbooks.
-- No requirement that every task use long-running work artifacts.
+- No requirement that every task use delegated-work artifacts.

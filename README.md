@@ -18,7 +18,7 @@ When a user points you at this repository for project rules:
 2. Read `ADOPTION.md` when the target repo is old, partially documented, or already has `docs/`.
 3. Read `documentation/documentation-definition.md` for document types and update rules.
 4. Read `documentation/development-flow.md` for planning, validation, and PR closure.
-5. Read `documentation/agent-workflow-definition.md` when work is expected to span multiple sessions, agents, or unattended execution.
+5. Read `documentation/agent-workflow-definition.md` when work is delegated to an agent and may require multiple iterations, handoff, unattended execution, or human-attention-light progress.
 6. Use templates from `templates/` only after adapting paths and validation commands to the target repo.
 
 Do not assume every adopting repository must immediately copy the full structure. Adoption is gradual by scope, not gradual by discipline.
@@ -84,7 +84,7 @@ If you are applying the pattern by hand instead of through an agent:
 - `*-evaluation-definition.md` files describe stable evidence, scenario, workload, or rubric expectations when ordinary tests are not enough.
 - `architecture.md` describes boundaries, ownership, dependency direction, and lifecycle invariants.
 - `development-flow.md` defines when planning, docs, tests, validation, and PR closure must be checked together.
-- `agent-workflow-definition.md` defines the repository-side contract for long-running agent-assisted work.
+- `agent-workflow-definition.md` defines the repository-side contract for delegated agent work.
 - `AGENTS.md` is a concise map for agents, not the full knowledge base.
 
 The governing idea is three-pillar independence:
@@ -104,7 +104,7 @@ Adoption should leave the target repository with a small set of explicit boundar
 - which scopes are adopted now, and which remain under existing repo practice
 - which validation commands prove changes in adopted scopes
 - which scopes need companion evaluation definitions for scenario, visual, workload, rubric, or operational evidence
-- which progress, acceptance, or evaluation artifacts are used for long-running work
+- which progress, acceptance, or evaluation artifacts are used for delegated agent work
 - when `AGENTS.md`, README, architecture docs, definitions, principles, and tests must be updated
 
 For a new repo, the agent usually adds starter docs such as:
@@ -162,7 +162,7 @@ The docs preserve intent and behavior. The toolchain helps prevent silent drift.
 
 Definition Harness is not an agent runtime. It does not provide model routing, tool loops, schedulers, sandboxes, approval systems, or evaluator services.
 
-It is the repository contract that makes long-running agent runtimes safer, more resumable, and easier to review. External tools can execute against:
+It is the repository contract that makes delegated agent work safer, more resumable, and easier to review. External tools can execute against:
 
 - concise `AGENTS.md` routing
 - stable definitions and principles
@@ -180,7 +180,7 @@ When the harness describes initializer, implementer, evaluator, or closer roles,
 - `CHANGELOG.md`: version-level changes
 - `POSITIONING.md`: why this exists and how it differs from disposable spec workflows
 - `examples/helpdesk-platform/`: non-game example documentation
-- `documentation/agent-workflow-definition.md`: repo-side contract for long-running agent-assisted work
+- `documentation/agent-workflow-definition.md`: repo-side contract for delegated agent work
 - `documentation/documentation-definition.md`: document types, naming, and update rules
 - `documentation/development-flow.md`: planning, validation, and PR closure
 - `documentation/harness-evolution-principles.md`: compatibility rules for evolving this harness
