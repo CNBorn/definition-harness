@@ -10,7 +10,8 @@ Keep documentation, code, tests, and operator-facing instructions aligned.
 - Treat `ADOPTION.md` as the compatibility and scoped-adoption guide for existing repositories.
 - Follow `documentation/documentation-definition.md` for document types, naming, and update rules.
 - Follow `documentation/development-flow.md` for planning, execution, validation, and PR closure.
-- Follow `documentation/agent-workflow-definition.md` for delegated agent work, progress artifacts, handoff state, and work-role boundaries.
+- Follow `documentation/agent-workflow-definition.md` for delegated agent work, final-state capture, evaluation, and work-role boundaries.
+- Capture final behavior, stable rationale, and validation evidence by default. Create implementation, planning, progress, or handoff documents only when requested by the user or required by explicit repo-local policy.
 - Follow `documentation/harness-evolution-principles.md` when changing framework rules, templates, versioning, or compatibility guidance.
 - When behavior changes, verify the matching `*-definition.md` files are still accurate.
 - When stable rationale changes, update the relevant `*-principles.md` files.

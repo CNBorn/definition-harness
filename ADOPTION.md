@@ -53,6 +53,8 @@ Scoped adoption is the recommended path for legacy repositories.
 
 Repo-local documentation rules should distinguish stable docs from temporary docs.
 
+Default adoption captures final behavior, stable rationale, and reusable evaluation criteria in repository docs, with final validation evidence in the PR. It does not require implementation details, plans, progress logs, or handoff files.
+
 Stable docs:
 
 - `*-definition.md`: current behavior, constraints, contracts, and observable outcomes
@@ -63,7 +65,7 @@ Stable docs:
 - `agent-workflow-definition.md`: repository-side contract for delegated agent work
 - runbooks: operator procedures and incident response instructions
 
-Temporary docs:
+Optional temporary docs:
 
 - `*-acceptance-contract.md`: completion criteria for a specific active work item
 - `*-context.md`: feature background, requirements, options, and decisions captured during planning
@@ -71,9 +73,9 @@ Temporary docs:
 - `*-progress.md`: work tracking, handoff notes, blockers, and validation logs
 - `IN_PROGRESS.md`: short-lived state for active multi-step work
 
-Temporary docs may support work, but stable behavior should be moved into definitions, principles, architecture docs, runbooks, README, or PR history before the work is considered closed.
+Create temporary docs only when requested by the user or required by explicit repo-local policy. Stable behavior should be moved into definitions, principles, architecture docs, runbooks, README, or PR history before the work is considered closed.
 
-For delegated agent work, `IN_PROGRESS.md` may act as a short active-work index that points to a detailed `*-progress.md` artifact. The progress artifact should capture enough state for another capable worker to resume without relying on chat history.
+When repository tracking is opted in, `IN_PROGRESS.md` may index a detailed `*-progress.md` artifact. Otherwise, execution state and handoff may stay in the external harness or session. Existing tracking conventions remain valid and do not need to be removed.
 
 ## Minimum Rule For An Adopted Scope
 
@@ -101,11 +103,11 @@ For an architecture scope:
 
 For delegated agent work:
 
-1. Use a progress artifact when work needs attention-independent progress, multiple implementation/evaluation iterations, handoff, unattended execution, or work across multiple sessions, context windows, or agents.
+1. Capture final behavior, stable evaluation criteria, and final validation evidence. Delegation, multiple sessions, iterations, or unattended execution do not themselves require repository progress files.
 2. Treat initializer, implementer, evaluator, and closer as work roles, not required agent processes.
-3. Keep acceptance contracts temporary unless their criteria become stable evaluation rules.
-4. Include outcome, verification, constraints, iteration policy, and error handling in the active goal or acceptance contract.
-5. Resolve progress artifacts before closure by deleting them, marking them historical, or moving durable knowledge into stable docs.
+3. Create progress, handoff, implementation-guide, context, or acceptance-contract files only when requested by the user or required by explicit repo-local policy.
+4. Include outcome, verification, constraints, iteration policy, and error handling in the task or external harness goal. A repository acceptance contract is optional.
+5. Resolve temporary artifacts, if created, before closure according to repo-local retention rules. Promote lasting behavior and rationale into stable docs.
 
 ## Existing Docs Policy
 
@@ -141,7 +143,7 @@ Before a PR is ready:
 
 - docs, code, and tests agree for any adopted scope
 - temporary planning docs are either cleaned up or clearly marked as historical
-- delegated-work progress artifacts are resolved or up to date
+- final behavior and evaluation evidence are reviewable without repository progress or handoff files
 - validation commands and results are recorded
 - README is updated when setup, commands, user workflows, or operator workflows change
 - architecture docs are updated only when boundaries or ownership changed

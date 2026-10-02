@@ -60,7 +60,7 @@ Use multiple reference cases when a single example could cause overfitting.
 
 - State what must happen when this evaluation fails.
 - State whether failures block merge, require human review, or create follow-up work.
-- State what the implementer should record before starting another iteration.
+- State what failed evidence or unresolved findings must be reported. Repository attempt logs are optional.
 
 ## Update Rule
 

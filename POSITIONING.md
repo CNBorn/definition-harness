@@ -92,7 +92,7 @@ It is closer to the repository-side contract for an agent engineering harness:
 
 Together, those make the repository safer and more legible as it grows.
 
-External agent runtimes can execute against this contract. The repository supplies durable definitions, principles, architecture references, progress artifacts, validation expectations, and closure rules. The external harness supplies orchestration, tools, model calls, sessions, approvals, sandboxes, and integrations.
+External agent runtimes can execute against this contract. The repository supplies final behavior definitions, stable principles, architecture references, evaluation criteria, validation expectations, and closure rules. The external harness supplies orchestration, tools, model calls, sessions, execution state, approvals, sandboxes, and integrations. Repository planning, progress, and handoff artifacts are optional when requested by the user or required by explicit repo-local policy.
 
 When this framework describes roles such as initializer, implementer, evaluator, or closer, those are work roles and responsibility boundaries, not runtime components. A role may be performed by one agent, multiple agents, a human operator, CI, a browser automation tool, or another external harness.
 

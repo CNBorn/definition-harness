@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Default repository capture to final behavior, stable rationale, reusable evaluation criteria, and final validation evidence.
+- Make implementation guides, context, progress, handoff, and acceptance-contract files opt-in through user requests or explicit repo-local policy.
+- Remove automatic repository tracking requirements for delegated, multi-session, and unattended work, while preserving existing opted-in conventions and templates.
+- Remove the delegated-work artifact reporting section from the default PR template.
+
 ## 1.2.0
 
 - Add a vendor-neutral repository contract for delegated agent work.
