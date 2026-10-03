@@ -1,5 +1,7 @@
 # <Item Or Workflow Name> Definition
 
+Use short, concrete rules. Remove unused sections without omitting required behavior or constraints.
+
 ## Scope
 
 - Describe the specific workflow, command, policy, interface, or item this file defines.
@@ -20,6 +22,7 @@
 
 - Describe the observable sequence of behavior.
 - Include branching, defaults, and failure conditions when relevant.
+- Use a Mermaid flow or state diagram if it makes branches clearer. Label transitions and keep conditions and failure rules explicit in text.
 
 ## Edge Cases
 

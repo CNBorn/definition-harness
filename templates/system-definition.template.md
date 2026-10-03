@@ -1,5 +1,7 @@
 # <System Name> Definition
 
+Use short, concrete rules. Remove unused sections without omitting required behavior or constraints.
+
 ## Scope
 
 - Describe the subsystem or domain covered by this definition.
@@ -26,6 +28,7 @@
 ## State And Contracts
 
 - List important state, data contracts, or authority boundaries.
+- Use a table or Mermaid diagram when it clarifies relationships. Label arrow meaning and keep conditions and constraints explicit in text.
 
 ## Defaults And Constraints
 

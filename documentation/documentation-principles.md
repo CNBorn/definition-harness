@@ -30,6 +30,16 @@ Definitions describe behavior and constraints, not internal file layout.
 - Definitions should survive a refactor without needing major rewrites.
 - `architecture.md` is the intentional exception because its purpose is boundary and ownership description.
 
+## Clarity Before Brevity
+
+Short, concrete text is easier to inspect for errors. Use STE-inspired writing principles: one main idea per sentence, active voice, and consistent terms.
+
+- Cut repetition and filler. Keep conditions, exceptions, values, and stable rationale.
+- Put a rule in one authoritative place. Link to it from other docs.
+- Use a table for comparisons or a diagram for relationships when it reduces reading effort.
+- Keep acceptance criteria explicit in text or tables. A diagram must not hide a requirement.
+- Word count measures size, not correctness. Full ASD-STE100 compliance is not required.
+
 ## Final-State Capture By Default
 
 The repository knowledge layer captures final behavior, stable rationale, and reusable evaluation criteria. Final validation evidence makes those claims reviewable.

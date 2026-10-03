@@ -18,6 +18,7 @@ Keep documentation, code, tests, and operator-facing instructions aligned.
 - Update `documentation/architecture.md` only when boundaries, ownership, dependency direction, or lifecycle invariants change.
 - Update `README.md` when setup steps, commands, user workflows, or operator workflows change.
 - Prefer precise, testable statements over aspirational wording.
+- Use short, concrete sentences and consistent terms. Follow the documentation definition for tables, diagrams, and writing rules.
 - Keep important project knowledge in repository files, not only in prompt text or chat history.
 - Before opening or updating a PR, run the repo-appropriate validation commands and record the results.
 - Preserve backward compatibility for already adopted repositories unless a breaking version is explicitly planned.

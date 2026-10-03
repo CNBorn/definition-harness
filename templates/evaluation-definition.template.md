@@ -2,6 +2,8 @@
 
 This document defines stable evaluation expectations for `<scope>`.
 
+Use observable pass conditions. Remove sections that do not apply, especially unused rubric sections. Keep required checks, evidence, and failure handling explicit.
+
 ## Scope
 
 - State the behavior, workflow, interface, or operator process this evaluation covers.

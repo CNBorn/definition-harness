@@ -1,166 +1,103 @@
 # Adoption Guide
 
-This guide describes how to adopt Definition Harness in a new repository or in an existing repository that already has its own documentation habits.
+Adopt Definition Harness in a new repository or one scope of an existing repository.
+Adoption is gradual by scope. Each adopted scope follows the docs, tests, and validation rules consistently.
 
-## Version 1.1 Compatibility Rule
+## Compatibility
 
-Definition Harness 1.1 is backward-compatible with repositories that already adopted the earlier `documentation/` model.
-
-Existing repositories do not need to rename `documentation/`, rewrite stable definitions, or restructure their docs to use the 1.1 guidance. Version 1.1 adds a clearer scoped-adoption model for older repositories and partially adopted repositories.
-
-## Core Adoption Principle
-
-Adoption is gradual by scope, not gradual by discipline.
-
-A repository may adopt the harness one subsystem, workflow, API surface, operator process, or product area at a time. Once a scope is adopted, that scope should follow the documentation, testing, and validation rules consistently.
-
-This avoids two failure modes:
-
-- forcing a full documentation migration before the repo is ready
-- creating loose planning docs that slowly become stale behavior authority
+Version 1.3 adds final-state capture defaults and concise writing guidance without requiring migration.
+Repositories using the earlier `documentation/` model, including versions 1.1 and 1.2, keep their valid structure.
+Do not rename docs paths, rewrite definitions, or delete useful docs just to adopt newer guidance.
+Existing repositories may retain explicit policies for working artifacts.
 
 ## Adoption Modes
 
-### Full Repository Adoption
+| Mode | Use when | Required setup |
+| --- | --- | --- |
+| Full repository | The repo is new or already uses structured behavior docs. | Stable docs, an `AGENTS.md` map, validation commands, and PR docs/validation reporting. |
+| Scoped | The repo has existing code, docs, and practices. Recommended for legacy repos. | Keep its docs path. List adopted scopes in local documentation rules. Add definitions and validation for those scopes. |
 
-Use this mode when the repository is new or already comfortable treating structured documentation as the behavior system of record.
+Complete documentation coverage is not required for scoped adoption.
+Unadopted scopes keep existing practices. Prefer adoption when a scope becomes high-risk or hard to understand.
 
-Expected shape:
+## What To Capture
 
-- `documentation/` or the repository's chosen equivalent contains stable behavior docs
-- `AGENTS.md` points agents to the documentation model and validation rules
-- PRs report documentation impact and validation evidence
-- behavior changes update matching `*-definition.md` files
+Store final behavior, stable rationale, and reusable evaluation criteria in repository docs.
+Record final validation evidence in the PR.
+Use short, concrete language. Use tables or diagrams when they clarify comparisons or relationships.
+Follow the local documentation definition for writing and update rules.
 
-This is the model used by repos that already look like the original Definition Harness structure. Version 1.1 does not require those repos to change shape.
+| Knowledge | Stable home |
+| --- | --- |
+| Current behavior, constraints, and outcomes | `*-definition.md` |
+| Stable rationale | `*-principles.md`, when needed |
+| Reusable checks, scenarios, or rubrics | `*-evaluation-definition.md`, when ordinary tests are not enough |
+| Ownership, boundaries, dependencies, and lifecycle | `architecture.md` |
+| Planning, validation, and closure rules | `development-flow.md` |
+| Delegated-work responsibilities | `agent-workflow-definition.md` |
+| Setup and user/operator workflows | `README.md` |
+| Operational and incident procedures | Runbooks |
 
-### Scoped Adoption
+## Optional Working Docs
 
-Use this mode for older repositories, mixed documentation systems, or teams that want to start with one important area.
+Plans and execution state may stay in the task, session, or external harness.
+Create context, implementation-guide, acceptance-contract, progress, or handoff files only when requested by the user or required by explicit repo-local policy.
+Delegation, task duration, multiple sessions, and repeated attempts do not themselves require these files.
 
-Expected shape:
+When opted in, `IN_PROGRESS.md` may index a detailed `*-progress.md` file.
+Keep the state current and resolve it before closure. Move lasting knowledge into stable docs.
+Existing tracking conventions remain valid.
 
-- the repo keeps its existing docs path if it already has one, such as `docs/`
-- adopted scopes are listed in the repo-local documentation rules
-- each adopted behavior scope has a `*-definition.md`
-- stable rationale uses `*-principles.md` when the rationale matters beyond one PR
-- companion evaluation definitions are added only when a scope needs stable scenario, visual, workload, rubric, or operational evidence
-- temporary planning docs are allowed, but they do not become long-term behavior authority
+## Adopt One Scope
 
-Scoped adoption is the recommended path for legacy repositories.
+### Behavior
 
-## Stable And Temporary Docs
+1. Create or update a definition for current behavior.
+2. Keep implementation steps, file inventories, and migration history out of it.
+3. Add tests for its observable claims and record validation in the PR.
+4. Add the scope to local documentation rules.
+5. Keep the definition aligned when behavior changes.
 
-Repo-local documentation rules should distinguish stable docs from temporary docs.
+Add principles only when rationale must guide future decisions.
+Add an evaluation definition only when stable scenario, visual, workload, rubric, or operational evidence needs a separate contract.
+Ground rubrics in real examples and review failures.
 
-Default adoption captures final behavior, stable rationale, and reusable evaluation criteria in repository docs, with final validation evidence in the PR. It does not require implementation details, plans, progress logs, or handoff files.
+### Rationale And Architecture
 
-Stable docs:
+- Rationale-only scopes use principles. Link related definitions when behavior becomes concrete.
+- Update architecture only when boundaries, ownership, dependency direction, or lifecycle invariants change.
 
-- `*-definition.md`: current behavior, constraints, contracts, and observable outcomes
-- `*-principles.md`: stable rationale that shapes future behavior and implementation decisions
-- `*-evaluation-definition.md`: stable criteria, commands, scenarios, tools, or evidence expectations used to evaluate a behavior scope
-- `architecture.md`: boundaries, ownership, dependency direction, and lifecycle invariants
-- `development-flow.md`: planning, validation, documentation, and PR closure rules
-- `agent-workflow-definition.md`: repository-side contract for delegated agent work
-- runbooks: operator procedures and incident response instructions
+### Delegated Work
 
-Optional temporary docs:
+Use the initializer, implementer, evaluator, and closer responsibilities in the agent workflow definition.
+Roles do not require separate agents.
+Define outcome, verification, constraints, iteration policy, and error handling in the task or external harness.
+Repository acceptance and progress files remain optional.
 
-- `*-acceptance-contract.md`: completion criteria for a specific active work item
-- `*-context.md`: feature background, requirements, options, and decisions captured during planning
-- `*-implementation-guide.md`: execution instructions for a specific implementation slice
-- `*-progress.md`: work tracking, handoff notes, blockers, and validation logs
-- `IN_PROGRESS.md`: short-lived state for active multi-step work
+## Existing Docs
 
-Create temporary docs only when requested by the user or required by explicit repo-local policy. Stable behavior should be moved into definitions, principles, architecture docs, runbooks, README, or PR history before the work is considered closed.
+Keep useful existing documents and classify them as stable, working, operational, or historical.
+Add definitions where durable behavior authority is needed.
+After work ships, resolve any working docs under local retention rules.
 
-When repository tracking is opted in, `IN_PROGRESS.md` may index a detailed `*-progress.md` artifact. Otherwise, execution state and handoff may stay in the external harness or session. Existing tracking conventions remain valid and do not need to be removed.
+## AGENTS.md
 
-## Minimum Rule For An Adopted Scope
+Keep it a map. Include the docs path, local rules file, adopted scopes, validation commands, deployment/migration guardrails, and delegated-work conventions.
+Put subsystem behavior in definitions.
 
-For a behavior scope:
+## PR Closure
 
-1. Create or update one `*-definition.md`.
-2. Document current behavior, not an aspirational future state.
-3. Keep implementation steps, file inventories, and migration history out of the definition.
-4. Add or update tests around the observable claims.
-5. Record validation commands and documentation impact in the PR.
-6. Update the definition when behavior changes later.
-7. Add an evaluation definition only when the scope needs stable scenario, visual, workload, rubric, or operational evidence beyond ordinary tests.
-8. For judgment-heavy scopes, base rubric criteria on real review feedback, baseline outputs, or repeated failure patterns.
+- Confirm docs, code, and tests agree for adopted scopes.
+- Record validation commands, results, and required evidence.
+- Update README for setup, commands, and user/operator workflow changes.
+- Update architecture only for changes within its scope.
+- Resolve any working docs or mark them historical.
 
-For a rationale-only scope:
+Final behavior and evidence must be reviewable without repository progress files.
+Follow `documentation/development-flow.md` for the PR format.
 
-1. Create or update one `*-principles.md`.
-2. State stable decision rules, not temporary preferences.
-3. Link related definitions when behavior becomes concrete.
+## Framework Versions
 
-For an architecture scope:
-
-1. Update `architecture.md` only when boundaries, ownership, dependency direction, or lifecycle invariants change.
-2. Keep routine implementation detail in code, definitions, tests, or PR history.
-
-For delegated agent work:
-
-1. Capture final behavior, stable evaluation criteria, and final validation evidence. Delegation, multiple sessions, iterations, or unattended execution do not themselves require repository progress files.
-2. Treat initializer, implementer, evaluator, and closer as work roles, not required agent processes.
-3. Create progress, handoff, implementation-guide, context, or acceptance-contract files only when requested by the user or required by explicit repo-local policy.
-4. Include outcome, verification, constraints, iteration policy, and error handling in the task or external harness goal. A repository acceptance contract is optional.
-5. Resolve temporary artifacts, if created, before closure according to repo-local retention rules. Promote lasting behavior and rationale into stable docs.
-
-## Existing Docs Policy
-
-Do not delete or rename existing documentation just to adopt the harness.
-
-Instead:
-
-- keep useful existing docs
-- classify them as stable, temporary, operational, or historical
-- add definitions only for scopes that need durable behavior authority
-- clean up temporary planning docs after the feature has shipped and stabilized
-
-If the repository already uses `docs/`, keep `docs/`. If it already uses `documentation/`, keep `documentation/`.
-
-## AGENTS.md Guidance
-
-`AGENTS.md` should be a map, not the full knowledge base.
-
-For scoped adoption, `AGENTS.md` should name:
-
-- the docs path
-- the repo-local documentation rules file
-- the adopted scopes or where to find them
-- the validation commands expected for common changes
-- any deployment or migration guardrails
-- any delegated agent work conventions used by external agent harnesses
-
-Avoid moving full subsystem behavior into `AGENTS.md`. Put stable behavior in definitions.
-
-## PR Closure Rule
-
-Before a PR is ready:
-
-- docs, code, and tests agree for any adopted scope
-- temporary planning docs are either cleaned up or clearly marked as historical
-- final behavior and evaluation evidence are reviewable without repository progress or handoff files
-- validation commands and results are recorded
-- README is updated when setup, commands, user workflows, or operator workflows change
-- architecture docs are updated only when boundaries or ownership changed
-
-## Versioning Guidance
-
-Definition Harness versions should preserve adopted repository compatibility unless a breaking change is explicitly called out.
-
-For non-breaking updates:
-
-- add new guidance without requiring existing docs to move
-- keep prior file naming valid
-- include migration notes only where adoption can improve gradually
-- verify that a fully adopted older repo can keep using its current structure
-
-For breaking updates:
-
-- state the breaking change clearly
-- provide a migration path
-- explain why compatibility could not be preserved
+Non-breaking updates preserve paths, filenames, and valid adoption shapes.
+New guidance and templates may be adopted gradually; migration is optional.
+Breaking updates must state the incompatibility, explain why it is needed, and provide a migration path.
