@@ -16,7 +16,7 @@ When a user points you at this repository for project rules:
 
 1. Treat this README as the landing page.
 2. Read `ADOPTION.md` when the target repo is old, partially documented, or already has `docs/`.
-3. Read `documentation/documentation-definition.md` for document types and update rules.
+3. Read `documentation/documentation-definition.md` for document types, concise writing, diagrams, and update rules.
 4. Read `documentation/development-flow.md` for planning, validation, and PR closure.
 5. Read `documentation/agent-workflow-definition.md` when work is delegated to an agent and may require multiple iterations, handoff, unattended execution, or human-attention-light progress.
 6. Use templates from `templates/` only after adapting paths and validation commands to the target repo.
@@ -79,23 +79,21 @@ If you are applying the pattern by hand instead of through an agent:
 
 ## Core Model
 
-- `*-definition.md` files describe current behavior, constraints, contracts, and observable outcomes.
-- `*-principles.md` files describe stable rationale that should guide future decisions.
-- `*-evaluation-definition.md` files describe stable evidence, scenario, workload, or rubric expectations when ordinary tests are not enough.
+- `*-definition.md` files define current behavior, constraints, and observable outcomes.
+- `*-principles.md` files explain stable rationale and decision rules.
+- `*-evaluation-definition.md` files define reusable evidence and review criteria when ordinary tests are not enough.
 - `architecture.md` describes boundaries, ownership, dependency direction, and lifecycle invariants.
 - `development-flow.md` defines when planning, docs, tests, validation, and PR closure must be checked together.
 - `agent-workflow-definition.md` defines the repository-side contract for delegated agent work.
 - `AGENTS.md` is a concise map for agents, not the full knowledge base.
 
-The governing idea is three-pillar independence:
+Docs describe behavior and intent, code implements it, and tests verify it. Each is a separate check.
 
-- docs describe behavior and intent
-- code implements behavior
-- tests verify behavior
+Capture final behavior, stable rationale, and reusable evaluation criteria in repo docs. Record final validation in the PR.
+Create working files only on user request or explicit repo-local policy. Plans and progress may stay in the external harness or session.
 
-None of the three should silently substitute for another.
-
-By default, repository docs capture the final implemented state, stable rationale, and reusable evaluation criteria. The PR records final validation evidence. Implementation plans, progress logs, and handoff files are opt-in: create them only when requested by the user or required by explicit repo-local policy. Delegated, multi-session, or unattended work can keep execution state in its external harness or session.
+Use short, concrete text. Use tables for comparisons and diagrams for relationships when they improve clarity.
+See `documentation/documentation-definition.md` for writing rules and `documentation/agent-workflow-definition.md` for the evaluation loop.
 
 ## What Adoption Sets Up
 
@@ -174,7 +172,7 @@ It is the repository contract that makes delegated agent work safer, more resuma
 
 Progress, handoff, implementation-guide, context, and acceptance-contract files are optional when explicitly enabled. External harnesses can manage execution state while the repository captures the final result.
 
-When the harness describes initializer, implementer, evaluator, or closer roles, those are work roles. They may be performed by one agent, multiple agents, a human operator, CI, browser automation, or an external agent framework.
+Work roles may be performed by people, agents, CI, or other tools. See the agent workflow definition for responsibilities.
 
 ## More Detail
 

@@ -26,6 +26,7 @@
 ## Dependency Direction Rules
 
 - Describe which layers may depend on which others.
+- Add a Mermaid diagram only if it makes boundaries or dependencies clearer. State what arrows mean and preserve ownership rules in text.
 
 ## Update Rule
 

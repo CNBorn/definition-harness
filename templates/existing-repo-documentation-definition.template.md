@@ -26,6 +26,14 @@ This document defines the documentation model and update rules for `<docs path>`
 
 Stable docs are allowed to be partial. They are authoritative only for their stated scope.
 
+## Writing And Diagrams
+
+- Use short sentences, active voice, concrete verbs, and one term per concept. These principles are inspired by STE; full ASD-STE100 compliance is not required.
+- Remove repeated explanations and empty sections. Keep conditions, exceptions, values, failure behavior, and stable rationale.
+- Use tables for comparisons. Use editable Mermaid diagrams when flows or dependencies are clearer than in prose.
+- Label what arrows mean. Keep acceptance criteria explicit in text or tables and verify changed diagrams render.
+- Keep each rule in one authoritative place and link to it elsewhere.
+
 ## Optional Temporary Docs
 
 Default adoption captures final behavior, stable rationale, and reusable evaluation criteria in repository docs, with final validation evidence in the PR. Create the following files only when requested by the user or required by explicit repo-local policy:

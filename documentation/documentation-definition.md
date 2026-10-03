@@ -1,166 +1,124 @@
 # Documentation Definition
 
-This document defines the documentation model and authoring rules for `documentation/`.
+This document defines document types, writing rules, and update rules for `documentation/`.
 
-## Scope
+## Scope And Paths
 
-- Covers system and workflow documentation under `documentation/`.
-- `README.md` is governed separately for quickstart, setup, commands, and user/operator-facing workflows.
-- `AGENTS.md` is the entrypoint for agent instructions, not the full knowledge base.
-- `ADOPTION.md` governs compatibility and scoped adoption for existing repositories.
+- `documentation/` holds behavior, rationale, architecture, evaluation, and process docs.
+- `README.md` covers setup, commands, and user/operator workflows.
+- `AGENTS.md` maps agents to repository rules and validation commands.
+- `ADOPTION.md` defines adoption modes and compatibility.
+
+Keep an adopting repository's existing docs path. Record it in `AGENTS.md` and the local documentation definition.
 
 ## Document Types
 
-Not all files in `documentation/` are definitions or principles. The core document types are:
+| Type | File | Purpose |
+| --- | --- | --- |
+| Definition | `<scope>-definition.md` | Current behavior, constraints, terms, and observable outcomes. Authoritative for its scope. |
+| Principle | `<scope>-principles.md` | Stable rationale and decision rules. Guides definitions without replacing them. |
+| Evaluation definition | `<scope>-evaluation-definition.md` | Reusable checks, scenarios, rubrics, and required evidence. Complements behavior definitions. |
+| Architecture reference | `architecture.md` | Boundaries, ownership, dependency direction, and lifecycle invariants. |
+| Process document | `development-flow.md` | Planning, implementation, validation, and closure rules. |
 
-- **Definition** (`*-definition.md`): normative behavioral requirements for a system, service, workflow, interface, or policy surface.
-- **Principle** (`*-principles.md`): stable rationale that shapes definitions and implementation decisions.
-- **Architecture reference** (`architecture.md`): high-level boundaries, ownership rules, dependency direction, and integration model.
-- **Process document** (`development-flow.md`): how work is planned, executed, verified, and closed.
-- **Evaluation definition** (`*-evaluation-definition.md`): stable criteria, commands, scenarios, tools, or evidence expectations used to evaluate a behavior scope.
+### Definition Levels
 
-Related root-level documents:
+- A system definition sets baseline rules for a domain, such as authentication, billing, or job orchestration.
+- An item/workflow definition applies those rules to a specific flow, policy, command, or interface.
+- An item/workflow must obey its system definition. Update the system rules before introducing a conflicting behavior.
 
-- `ADOPTION.md`: repository adoption modes, compatibility expectations, and stable-vs-temporary doc rules for existing repositories.
-
-## Documentation Entities
-
-### Definition
-
-A Definition is a normative statement set that describes behavior, constraints, terminology, and observable outcomes for a scope.
-
-- A definition is authoritative for its scope.
-- Definitions exist at system level or item/workflow level.
-- Definitions may reference governing principles and adjacent definitions.
-
-### Principle
-
-A Principle is a stable intent rule that explains why definitions are shaped the way they are.
-
-- Principles guide decisions when implementation details evolve.
-- Principles do not replace concrete behavioral rules.
-- Multiple definitions can share the same principle set.
-
-## Definition Levels
-
-### System Definition
-
-Describes rules for a broad subsystem or business domain.
-
-- Scope examples: authentication, billing, job orchestration, search, import/export, notifications.
-- System definitions set baseline rules and constraints for all items within the domain.
-- File naming: `<system>-definition.md`.
-
-### Item Or Workflow Definition
-
-Describes a specific workflow, interface surface, authored policy, or concrete instance inside a broader system.
-
-- Scope examples: password reset flow, invoice finalization job, webhook retry policy, CLI `deploy` command, customer import pipeline.
-- Item/workflow definitions apply system-level rules to concrete behavior.
-- Item/workflow definitions must not violate inherited system-level rules.
-- If an item needs behavior that conflicts with system rules, update the system definition first.
-
-## Principles File Convention
-
-- Principles docs follow `<scope>-principles.md` naming.
-- Not every system needs its own principles file; shared principles can cover multiple definitions.
-- `documentation-principles.md` governs documentation authoring itself.
-- `programming-principles.md` governs implementation patterns when the repo chooses to include it.
-
-## Writing Rules
-
-- Document only the current state of the product and codebase.
-- Capture the final implemented state and stable rationale by default. Implementation steps, progress logs, and handoff notes are opt-in working artifacts.
-- Write in present tense and keep behavior descriptions factual.
-- Remove or rewrite stale statements when behavior changes.
-- Keep historical notes and migration discussion in PR descriptions or project history, not in definitions.
-- When documenting tuned or constrained values, include the constant name and value when practical.
-- Use canonical in-code and in-product terminology consistently.
-- Keep docs scannable: behavior summary first, key defaults and constraints second.
-- Keep `architecture.md` high-level and stable; avoid file-by-file inventories and volatile implementation detail.
-- Avoid coupling definition text to source file paths unless the path itself is part of the contract.
-
-## Traceability
-
-- Traceability between docs and tests relies on shared naming and terminology, not mandatory inline cross-references.
-- Definition docs do not need to enumerate which tests verify them.
-- Tests do not need to name the specific doc they satisfy.
-- The mapping should be discoverable: a definition covering "ticket routing" should naturally map to code and tests that use the same terms.
-
-## Canonical Paths
-
-- `documentation/` for behavior, architecture, and process docs.
-- `README.md` for setup, commands, and user/operator-facing workflow instructions.
-- `AGENTS.md` for concise navigation and project instructions for agents.
-- `ADOPTION.md` for adopting the harness in new, existing, or partially adopted repositories.
-
-Adopting repositories may use `docs/` or another established docs path. If they do, keep references consistent and record the local path in `AGENTS.md` and the repo-local documentation definition.
-
-## Scoped Adoption
-
-Definition Harness may be adopted one scope at a time.
-
-- A scope can be a subsystem, workflow, API surface, operator process, or product area.
-- A repository does not need complete documentation coverage before one scope can adopt the harness.
-- Once a scope is adopted, its definitions, principles, tests, and validation expectations should be kept aligned consistently.
-- Existing full-adoption repositories that already use the `documentation/` model do not need to change structure for scoped adoption.
-
-## Temporary Planning Docs
-
-Temporary planning docs are optional working artifacts, not part of default adoption or long-term behavior authority. Create them only when the user requests them or an explicit repo-local policy requires them. Delegation, task duration, iteration count, or crossing sessions does not itself require these files.
-
-Examples:
-
-- `*-acceptance-contract.md`
-- `*-context.md`
-- `*-implementation-guide.md`
-- `*-progress.md`
-- `IN_PROGRESS.md`
-
-Before closing work, move lasting behavior or rationale into definitions, principles, architecture docs, README, runbooks, or PR history.
-
-Planning, iteration state, and handoff can stay in the external harness or session. Final validation commands and results still belong in the PR; they do not require a separate progress log in the repository.
-
-### Acceptance Contracts
-
-An acceptance contract describes the intended completion criteria for a specific piece of work.
-
-- When opted in, it may include future-facing criteria while the work is active. Otherwise, completion criteria can stay in the task or external harness.
-- It is temporary unless the repository explicitly promotes it to a stable process or evaluation definition.
-- Before closure, current behavior belongs in `*-definition.md`; stable evaluation rules belong in `*-evaluation-definition.md`; one-time decisions belong in PR history.
-
-### Progress And Handoff Artifacts
-
-When opted in, progress artifacts record active execution state for delegated or multi-step work, including long-running cases.
-
-- If repository progress tracking is enabled, use `IN_PROGRESS.md` for short-lived active work state or as an index to a `*-progress.md` file.
-- A `*-progress.md` file may hold checkpoints, validation logs, handoff notes, or next-action guidance for an opted-in workflow.
-- Progress artifacts must name the latest known state, not rely on chat history.
-- Delete temporary progress artifacts when the work is complete, unless they are intentionally kept as historical records.
+Definitions may reference shared principles and adjacent definitions. A scope does not need its own principles file.
+`documentation-principles.md` governs authoring. `programming-principles.md`, when included, governs implementation.
 
 ### Evaluation Definitions
 
-Evaluation definitions describe stable validation expectations for a behavior scope.
+Use a separate evaluation definition when ordinary tests cannot express all required evidence.
 
-- Use them when a scope needs more than ordinary unit or integration tests to evaluate correctness.
-- They may describe scenario tests, browser checks, screenshots, logs, benchmark workloads, manual review criteria, or domain-specific graders.
-- For judgment-heavy work, they may define rubric dimensions, weights, positive examples, anti-patterns, baseline failures, and evaluator calibration notes.
-- They should define what evidence is required, not prescribe a specific vendor runtime unless the repository has standardized on one.
-- They complement behavior definitions; they do not replace them.
-- They should be created from repeated review needs or real failure patterns, not from speculative process preferences.
+- Define scenarios, browser checks, workload measurements, logs, or review criteria as needed.
+- For judgment-based review, define observable rubric dimensions, examples, failure patterns, and human calibration. Add weights only when justified.
+- Base criteria on real review needs. Keep tools vendor-neutral unless the repo standardizes on one.
 
-## Update Rules
+## Writing Rules
 
-When behavior changes, verify the relevant definition docs are still accurate.
+Document the final implemented behavior, stable rationale, and reusable evaluation criteria. Put final validation results in the PR.
+Keep history and migration discussion in PRs or project history.
 
-- Definition docs use `<scope>-definition.md` naming so matching docs can be found by scope name.
-- When changing a system, scan `documentation/` for the matching definition files by terminology.
-- Check `architecture.md` when boundaries or ownership rules change.
-- Check `README.md` when commands, setup, or operational workflows change.
-- Check `AGENTS.md` when project guidance or validation expectations change.
+### Clear Technical Language
 
-## Pre-Merge Checklist
+Use selected principles from [ASD-STE100](https://www.asd-ste100.org/STE_faq.html). This framework does not require its controlled dictionary or claim STE compliance.
 
-- Search for stale names, outdated workflows, or renamed concepts and remove old references.
-- Confirm docs match the current implementation, not an intermediate local state.
-- Verify `tested` and `documented` independently before merge.
+- Use short sentences, active voice, and concrete verbs. Give each sentence one main rule or action.
+- When a condition controls an action, state the condition first.
+- Use one term for one concept. Preserve canonical product names, code identifiers, and domain vocabulary.
+- Name the actor and outcome. Replace vague words such as "appropriately" with observable conditions or values.
+- Keep requirements explicit: `must` is required, `should` is recommended, and `may` is permitted.
+- Remove filler, repeated explanations, and empty template sections. Preserve exceptions, failure behavior, limits, and rationale.
+- Apply these principles in the document's language. Do not shorten text by omitting facts or sentence parts needed for clarity.
+
+Write in present tense. Put the behavior summary first, then defaults and constraints.
+Include constant names and values when useful. Rewrite stale claims when behavior changes.
+Keep architecture docs high-level. Mention source paths only when they form part of the contract.
+
+### Tables And Diagrams
+
+Use the smallest format that makes the information easy to check.
+
+| Information | Preferred format |
+| --- | --- |
+| A rule, constraint, or rationale | Short prose or a list |
+| Comparable options, roles, states, or condition/result cases | Table |
+| Branching flows, dependencies, ownership, or data movement | Diagram when relationships are clearer than in prose |
+| Measurements or trends | Chart or table with units and conditions |
+
+- Prefer editable Mermaid diagrams in Markdown for software relationships.
+- Label nodes and arrows. Say whether arrows mean calls, data flow, dependencies, or state transitions.
+- Show the stable model or workflow. Update a diagram with the rules it represents.
+- Replace repeated relational prose with the diagram. Keep conditions, exceptions, and acceptance criteria explicit in text or tables.
+- Keep each rule authoritative in one place. Link to it instead of repeating it.
+- A simple rule does not need a diagram. Verify diagram syntax and rendered labels when adding or changing one.
+
+## Traceability
+
+Use shared names across docs, code, and tests so the mapping is discoverable.
+Definitions need not list individual tests, and tests need not cite document paths.
+
+## Scoped Adoption
+
+A scope may be a subsystem, workflow, API, operator process, or product area.
+Complete repository coverage is not required. For each adopted scope, keep definitions, principles, tests, and validation expectations aligned.
+Existing full-adoption repositories keep their structure.
+
+## Optional Working Docs
+
+Create working docs only when requested by the user or required by explicit repo-local policy.
+Delegation, duration, multiple iterations, or crossing sessions does not itself require these files.
+Planning and execution state may stay in the task, session, or external harness.
+
+| File | Optional purpose |
+| --- | --- |
+| `*-acceptance-contract.md` | Completion criteria for active work. May include future behavior. |
+| `*-context.md` | Planning context, options, and decisions. |
+| `*-implementation-guide.md` | Instructions for a specific implementation slice. |
+| `*-progress.md` | Checkpoints, blockers, validation logs, and handoff state. |
+| `IN_PROGRESS.md` | Active state or an index to a progress file. |
+
+Working docs are not long-term behavior authority.
+When opted in, progress files must contain enough current state to resume without chat history.
+Before closure, move lasting behavior, rationale, and evaluation rules into stable docs, README, or runbooks.
+Keep one-time decisions in PR history. Delete working files unless they are intentionally retained as history.
+
+## Update And Review
+
+When behavior changes, search docs by scope terminology and check the relevant definitions.
+
+| Change | Check |
+| --- | --- |
+| Behavior, defaults, or contracts | Matching definitions |
+| Stable rationale | Matching principles |
+| Checks, rubrics, or evidence requirements | Matching evaluation definitions |
+| Boundaries, ownership, dependencies, or lifecycle | `architecture.md` |
+| Setup, commands, or user/operator workflows | `README.md` |
+| Agent routing or validation guidance | `AGENTS.md` |
+
+Before merge, remove stale terminology and confirm docs match the final implementation.
+Verify `tested` and `documented` separately.
