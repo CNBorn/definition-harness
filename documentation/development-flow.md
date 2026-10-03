@@ -42,16 +42,11 @@ Use this loop when a change targets performance, scalability, reliability, or op
 
 ## Continuity For Multi-Step Work
 
-For work that spans multiple steps or sessions, use `IN_PROGRESS.md` to track:
+Plans, iteration state, and handoff notes may stay in the external harness or session. By default, repository docs capture final behavior, stable rationale, and reusable evaluation criteria; the PR records final validation evidence.
 
-- agreed scope and decisions
-- implementation checklist
-- open questions
-- pending validation
+Create `IN_PROGRESS.md`, `*-progress.md`, implementation guides, context files, or acceptance contracts only when requested by the user or required by explicit repo-local policy. Multiple steps, sessions, iterations, or unattended execution do not themselves require repository tracking.
 
-Keep it current during execution and delete it when the work is complete.
-
-For larger work, `IN_PROGRESS.md` may act as a short active-work index that points to a more detailed `*-progress.md` artifact. Do not let active progress notes become long-term behavior authority; move durable behavior into definitions before closure.
+When tracking is opted in, `IN_PROGRESS.md` may hold active state or index a detailed `*-progress.md` artifact. Keep it current and resolve it when work is complete. Move durable knowledge into stable docs before closure.
 
 ## Delegated Agent Work
 
@@ -59,48 +54,33 @@ Use this flow when work is delegated to an agent or external harness and require
 
 ### Repository Contract
 
-Delegated agent work should leave enough state in the repository for another capable worker to resume without relying on chat history.
+Delegated agent work should produce final documentation and evaluation evidence that another capable worker can review without relying on chat history.
 
-Before implementation, create or update the relevant progress artifact with:
-
-- goal and non-goals
-- affected definitions or adopted scopes
-- current implementation state
-- planned slices
-- validation commands
-- open questions and blockers
-- latest handoff note
+Before implementation, establish the goal, non-goals, affected scopes, constraints, and validation expectations in the task or external harness. This does not require repository planning or progress files.
 
 ### Work Roles
 
 The following roles are responsibility boundaries, not required runtime components:
 
-- `Initializer`: reads repo guidance, maps the affected scope, confirms commands, creates or updates the progress artifact, and identifies the first safe slice.
-- `Implementer`: makes a focused change, updates tests and docs for that slice, and records what changed.
+- `Initializer`: reads repo guidance, maps the affected scope, confirms completion criteria and commands, and identifies the first safe slice. Creates a progress artifact only when opted in.
+- `Implementer`: makes focused changes and aligns tests and docs with the final behavior. Provides final validation evidence for review.
 - `Evaluator`: independently checks behavior, validation output, docs alignment, and user/operator impact. The evaluator may be a human, CI job, browser automation, external agent, or test harness.
-- `Closer`: confirms temporary artifacts are resolved, moves durable knowledge into stable docs, records validation, and leaves the worktree ready for review.
+- `Closer`: confirms final behavior is documented, resolves temporary artifacts if any were created, records validation, and leaves the worktree ready for review.
 
-One person or agent may perform multiple roles, but the responsibilities should remain separable in the artifacts.
+One person or agent may perform multiple roles. These responsibilities apply whether or not repository progress tracking is enabled.
 
 ### Iteration Loop
 
-1. Read `AGENTS.md`, the relevant definitions, `development-flow.md`, and the active progress artifact.
+1. Read `AGENTS.md`, the relevant definitions, `development-flow.md`, and the delegated goal. Read an active progress artifact if tracking is opted in.
 2. Select one implementation slice with an observable validation path.
 3. Implement the slice and update tests, docs, or operator instructions in the same change when needed.
 4. Run targeted validation before broad validation.
-5. Record validation results, remaining risks, and next recommended slice.
+5. Evaluate the result and select the next action in the external harness or session. Retain evidence needed for final validation reporting; repository attempt logs are optional.
 6. Re-evaluate scope before starting the next slice.
 
-### End-Of-Session State
+### Handoff When Needed
 
-Before pausing or handing off delegated work:
-
-- record what changed since the last handoff
-- record commands run and results
-- list uncommitted files and why they are still uncommitted
-- identify the next safe action
-- identify any decisions that need human input
-- keep the repository buildable or state clearly why it is not
+When pausing or handing off delegated work, communicate blockers, incomplete changes, and the next safe action through the external harness or session. Use repository handoff files only when tracking is opted in. Incomplete work must be reported as incomplete; it must not be documented as the final implemented behavior.
 
 ## Required Pre-Merge Checks
 
@@ -108,10 +88,10 @@ Before pausing or handing off delegated work:
 - Unit-testable or integration-testable changes have adequate coverage.
 - Behavior docs are updated and aligned with the current implementation.
 - Performance or reliability changes include before/after evidence when relevant.
-- Delegated work has an up-to-date progress or handoff artifact when it is not complete.
+- Final validation evidence and unresolved risks are reported; repository progress or handoff files are not required.
 - Validation commands pass.
 - Architecture docs are updated only when boundary or ownership changes require it.
-- Temporary planning artifacts are cleaned up.
+- Temporary planning artifacts, if created, are resolved according to repo-local retention rules.
 
 ## PR Description Requirements
 

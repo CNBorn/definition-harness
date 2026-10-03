@@ -95,6 +95,8 @@ The governing idea is three-pillar independence:
 
 None of the three should silently substitute for another.
 
+By default, repository docs capture the final implemented state, stable rationale, and reusable evaluation criteria. The PR records final validation evidence. Implementation plans, progress logs, and handoff files are opt-in: create them only when requested by the user or required by explicit repo-local policy. Delegated, multi-session, or unattended work can keep execution state in its external harness or session.
+
 ## What Adoption Sets Up
 
 Adoption should leave the target repository with a small set of explicit boundaries:
@@ -104,7 +106,7 @@ Adoption should leave the target repository with a small set of explicit boundar
 - which scopes are adopted now, and which remain under existing repo practice
 - which validation commands prove changes in adopted scopes
 - which scopes need companion evaluation definitions for scenario, visual, workload, rubric, or operational evidence
-- which progress, acceptance, or evaluation artifacts are used for delegated agent work
+- whether repo-local policy explicitly enables temporary planning, progress, acceptance, or handoff artifacts
 - when `AGENTS.md`, README, architecture docs, definitions, principles, and tests must be updated
 
 For a new repo, the agent usually adds starter docs such as:
@@ -167,10 +169,10 @@ It is the repository contract that makes delegated agent work safer, more resuma
 - concise `AGENTS.md` routing
 - stable definitions and principles
 - architecture and development-flow rules
-- progress and handoff artifacts
-- acceptance contracts
 - evaluation definitions
 - validation and closure expectations
+
+Progress, handoff, implementation-guide, context, and acceptance-contract files are optional when explicitly enabled. External harnesses can manage execution state while the repository captures the final result.
 
 When the harness describes initializer, implementer, evaluator, or closer roles, those are work roles. They may be performed by one agent, multiple agents, a human operator, CI, browser automation, or an external agent framework.
 

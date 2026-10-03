@@ -1,6 +1,6 @@
 # <Work Name> Progress
 
-Use this file for active delegated agent work that needs attention-independent progress, multiple implementation/evaluation iterations, handoff, unattended execution, or work across multiple sessions, context windows, or agents.
+Optional template: use only when the user requests repository progress tracking or an explicit repo-local policy requires it. Delegated, multi-session, or unattended work does not itself require this file. Execution state may stay in the external harness or session.
 
 Delete it when the work is complete, unless the repository intentionally keeps it as a historical record.
 

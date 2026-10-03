@@ -14,10 +14,6 @@ Include required evaluation evidence when the change affects a scope with an eva
 
 Explain what documentation changed, or state why no documentation changes were needed.
 
-## Delegated Agent Work
-
-If this work used progress, acceptance, or handoff artifacts, explain whether they were resolved, preserved as historical records, or remain active.
-
 ### Compatibility
 
 If this changes harness rules or templates, explain whether existing adopted repositories need to migrate.

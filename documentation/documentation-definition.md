@@ -70,6 +70,7 @@ Describes a specific workflow, interface surface, authored policy, or concrete i
 ## Writing Rules
 
 - Document only the current state of the product and codebase.
+- Capture the final implemented state and stable rationale by default. Implementation steps, progress logs, and handoff notes are opt-in working artifacts.
 - Write in present tense and keep behavior descriptions factual.
 - Remove or rewrite stale statements when behavior changes.
 - Keep historical notes and migration discussion in PR descriptions or project history, not in definitions.
@@ -106,7 +107,7 @@ Definition Harness may be adopted one scope at a time.
 
 ## Temporary Planning Docs
 
-Temporary planning docs may exist, but they are not long-term behavior authority.
+Temporary planning docs are optional working artifacts, not part of default adoption or long-term behavior authority. Create them only when the user requests them or an explicit repo-local policy requires them. Delegation, task duration, iteration count, or crossing sessions does not itself require these files.
 
 Examples:
 
@@ -118,20 +119,22 @@ Examples:
 
 Before closing work, move lasting behavior or rationale into definitions, principles, architecture docs, README, runbooks, or PR history.
 
+Planning, iteration state, and handoff can stay in the external harness or session. Final validation commands and results still belong in the PR; they do not require a separate progress log in the repository.
+
 ### Acceptance Contracts
 
 An acceptance contract describes the intended completion criteria for a specific piece of work.
 
-- It may include future-facing criteria while the work is active.
+- When opted in, it may include future-facing criteria while the work is active. Otherwise, completion criteria can stay in the task or external harness.
 - It is temporary unless the repository explicitly promotes it to a stable process or evaluation definition.
 - Before closure, current behavior belongs in `*-definition.md`; stable evaluation rules belong in `*-evaluation-definition.md`; one-time decisions belong in PR history.
 
 ### Progress And Handoff Artifacts
 
-Progress artifacts record active execution state for delegated or multi-step work, including long-running cases.
+When opted in, progress artifacts record active execution state for delegated or multi-step work, including long-running cases.
 
-- Use `IN_PROGRESS.md` for short-lived active work state or as an index to the current `*-progress.md` file.
-- Use `*-progress.md` when the work needs detailed checkpoints, validation logs, handoff notes, or next-action guidance.
+- If repository progress tracking is enabled, use `IN_PROGRESS.md` for short-lived active work state or as an index to a `*-progress.md` file.
+- A `*-progress.md` file may hold checkpoints, validation logs, handoff notes, or next-action guidance for an opted-in workflow.
 - Progress artifacts must name the latest known state, not rely on chat history.
 - Delete temporary progress artifacts when the work is complete, unless they are intentionally kept as historical records.
 

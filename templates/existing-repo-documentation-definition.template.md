@@ -10,7 +10,7 @@ This document defines the documentation model and update rules for `<docs path>`
 
 ## Documentation Path
 
-- Stable and temporary project documentation lives in `<docs path>/`.
+- Stable project documentation lives in `<docs path>/`. Temporary working documents are optional and use the repo-local path when enabled.
 - `README.md` remains the entrypoint for setup, commands, and user/operator-facing workflows.
 - `AGENTS.md` remains the concise agent map for repository rules and validation commands.
 
@@ -26,7 +26,9 @@ This document defines the documentation model and update rules for `<docs path>`
 
 Stable docs are allowed to be partial. They are authoritative only for their stated scope.
 
-## Temporary Docs
+## Optional Temporary Docs
+
+Default adoption captures final behavior, stable rationale, and reusable evaluation criteria in repository docs, with final validation evidence in the PR. Create the following files only when requested by the user or required by explicit repo-local policy:
 
 - `*-context.md`: feature background, requirements, options, and planning decisions.
 - `*-implementation-guide.md`: execution instructions for a specific implementation slice.
@@ -36,7 +38,7 @@ Stable docs are allowed to be partial. They are authoritative only for their sta
 
 Temporary docs may support work, but they must not become long-term behavior authority. Before closing a feature, move lasting behavior or rationale into the relevant stable docs, README, runbooks, or PR history.
 
-For delegated agent work, `IN_PROGRESS.md` may be used as a short active-work index that points to a detailed `*-progress.md` artifact. Progress artifacts should capture enough state for another capable worker to resume without relying on chat history.
+Delegation, task duration, multiple iterations, or crossing sessions does not itself require repository progress files. Execution state may stay in the external harness or session. When repository tracking is opted in, `IN_PROGRESS.md` may index a detailed `*-progress.md` artifact. Existing tracking conventions remain valid.
 
 ## Adopted Scopes
 
@@ -79,6 +81,6 @@ Update `README.md` when setup steps, commands, user workflows, operator workflow
 - Stable rationale changes are reflected in matching principles.
 - Stable evaluation criteria changes are reflected in matching evaluation definitions.
 - Temporary planning docs are cleaned up or marked as historical.
-- Delegated-work progress artifacts are resolved or up to date.
+- Final behavior and evaluation evidence are reviewable without repository progress or handoff files.
 - Validation commands were run and recorded.
 - README and architecture docs were checked for relevance.

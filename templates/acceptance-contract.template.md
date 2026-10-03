@@ -1,6 +1,6 @@
 # <Work Name> Acceptance Contract
 
-Use this temporary artifact to define completion criteria for a specific work item before or during implementation.
+Optional template: create this temporary artifact only when requested by the user or required by explicit repo-local policy. Completion criteria may otherwise stay in the task or external harness.
 
 Before closure, move durable behavior into `*-definition.md`, stable evaluation criteria into `*-evaluation-definition.md`, and one-time rationale into the PR or issue history.
 
@@ -23,7 +23,7 @@ Before closure, move durable behavior into `*-definition.md`, stable evaluation 
 - `Outcome`: `<desired end state>`
 - `Verification`: `<how completion is proven>`
 - `Constraints`: `<what may or may not change>`
-- `Iteration policy`: `<what to record or reconsider after each attempt>`
+- `Iteration policy`: `<how to evaluate, revise, and choose the next attempt; repository attempt logs are optional>`
 - `Error handling`: `<when to stop and report instead of continuing>`
 
 ## Required Evidence

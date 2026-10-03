@@ -4,25 +4,26 @@ This document defines the repository-side contract for delegated agent work.
 
 ## Scope
 
-- Covers artifacts, responsibility boundaries, and closure rules that help humans or external agent harnesses resume, evaluate, and review delegated work.
+- Covers final-state documentation, evaluation expectations, responsibility boundaries, and optional working artifacts for delegated work.
 - Applies when a task requires attention-independent progress, multiple implementation/evaluation iterations, handoff, unattended execution, or work across multiple context windows, sessions, or agents.
 - Does not define an agent runtime, model provider, tool loop, scheduler, sandbox, approval system, or observability backend.
 
 ## Behavior Summary
 
-Definition Harness makes delegated agent work safer by keeping durable knowledge, active execution state, and evaluation expectations in repository files.
+Definition Harness supports delegated agent work by keeping final behavior, stable rationale, and reusable evaluation expectations in repository files. Final validation evidence is recorded in the PR. Execution state may stay in the external harness or session.
 
 External harnesses may use coding-agent products, orchestration frameworks, custom scripts, CI jobs, browser automation, or human operators. The repository contract stays vendor-neutral.
 
 ## Core Rules
 
-- Delegated work must not depend on chat history as the only source of state.
+- Durable behavior, rationale, and evaluation criteria must not depend on chat history as their only source.
 - `AGENTS.md` remains a concise map to repository rules, not a full subsystem manual.
 - Stable behavior belongs in `*-definition.md`.
 - Stable rationale belongs in `*-principles.md`.
 - Stable evaluation criteria belong in `*-evaluation-definition.md` when ordinary tests are not enough.
-- Active execution state belongs in `IN_PROGRESS.md` or `*-progress.md`.
-- Future-facing acceptance criteria belong in temporary acceptance contracts until they are implemented or discarded.
+- Repository documentation captures the final implemented state by default, without implementation diaries or progress logs.
+- Create progress, handoff, implementation-guide, context, or acceptance-contract files only when the user requests them or an explicit repo-local policy requires them. Task duration, delegation, and multiple iterations or sessions do not themselves opt in.
+- Active execution state and future-facing acceptance criteria may stay in the task, external harness, or session. When repository tracking is opted in, use the relevant temporary artifacts.
 - Temporary artifacts must be resolved before closure by deleting them, marking them historical, or moving lasting knowledge into stable docs.
 
 ## Work Roles
@@ -35,16 +36,16 @@ The initializer establishes the starting state for delegated work.
 
 - Reads `AGENTS.md`, `README.md`, `documentation/documentation-definition.md`, `documentation/development-flow.md`, and relevant scope docs.
 - Identifies affected definitions, principles, architecture docs, README sections, tests, and validation commands.
-- Creates or updates the active progress artifact.
-- Records scope, non-goals, assumptions, open questions, and first implementation slice.
+- Establishes scope, non-goals, completion criteria, constraints, and validation expectations in the task or external harness.
+- Creates or updates a repository progress artifact only when tracking is opted in.
 
 ### Implementer Role
 
 The implementer changes the repository in focused slices.
 
-- Works from the active progress artifact and relevant definitions.
+- Works from the delegated goal and relevant definitions, using a progress artifact if tracking is opted in.
 - Updates code, tests, docs, and operator instructions together when behavior changes.
-- Records what changed, what was validated, and what remains.
+- Provides final behavior documentation and validation evidence for review. Per-iteration implementation logs are optional.
 - Avoids expanding scope without updating non-goals and affected docs.
 
 ### Evaluator Role
@@ -55,7 +56,7 @@ The evaluator checks the result independently from implementation.
 - Runs or reviews validation commands, scenario checks, screenshots, logs, benchmark evidence, rubric scores, or other required evaluation artifacts.
 - Identifies documentation drift, untested claims, broken workflows, and unresolved risks.
 - Calibrates rubric-based judgments against human review when the evaluation depends on taste, quality, usability, or other judgment-heavy criteria.
-- Records findings in the progress artifact, PR, issue, or review system used by the repository.
+- Reports findings in the PR, issue, external harness, or review system used by the repository; a progress file is optional.
 
 ### Closer Role
 
@@ -63,10 +64,12 @@ The closer prepares work for review or merge.
 
 - Confirms behavior, tests, docs, and validation evidence agree.
 - Moves durable behavior or rationale out of temporary artifacts and into stable docs.
-- Cleans up temporary progress artifacts or marks them historical.
+- Resolves temporary artifacts if any were created, following repo-local retention rules.
 - Records validation, docs impact, risks, and remaining follow-up in the PR.
 
-## Progress Artifact Requirements
+## Optional Progress Artifacts
+
+Use this section only when the user or repo-local policy has opted into repository progress tracking. External harnesses may handle continuation and handoff without repository progress files.
 
 A progress artifact should be enough for another capable worker to resume the task.
 
@@ -122,10 +125,10 @@ When a task is delegated to an external agent harness, the goal should include:
 - `Outcome`: the desired end state.
 - `Verification`: how completion is proven.
 - `Constraints`: what may or may not change.
-- `Iteration policy`: what to record or reconsider after each attempt.
+- `Iteration policy`: how to evaluate, revise, and choose the next attempt. Repository attempt logs are optional.
 - `Error handling`: when to stop and report instead of continuing.
 
-These fields can live in an acceptance contract, a progress artifact, or an external harness prompt. Durable behavior still belongs in definitions, and stable evaluation rules belong in evaluation definitions.
+These fields can live in the task or external harness prompt. Acceptance contracts and progress artifacts are optional repository copies when opted in. Durable behavior belongs in definitions, and stable evaluation rules belong in evaluation definitions.
 
 ## Non-goals
 
