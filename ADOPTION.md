@@ -5,7 +5,8 @@ Adoption is gradual by scope. Each adopted scope follows the docs, tests, and va
 
 ## Compatibility
 
-Repositories using the earlier `documentation/` model, including version 1.1, keep their valid structure.
+Version 1.3 adds final-state capture defaults and concise writing guidance without requiring migration.
+Repositories using the earlier `documentation/` model, including versions 1.1 and 1.2, keep their valid structure.
 Do not rename docs paths, rewrite definitions, or delete useful docs just to adopt newer guidance.
 Existing repositories may retain explicit policies for working artifacts.
 

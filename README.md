@@ -138,7 +138,7 @@ For that adopted scope, define the current behavior, set validation expectations
 Examples:
 
 - A mature Django app with years of mixed docs can keep `docs/`, then adopt only the homepage splash selector first. That scope gets `docs/homepage-splash-definition.md`, validation expectations, and a rule that future splash behavior changes update the definition.
-- A game repo that already has many `documentation/*-definition.md` files can keep its structure unchanged. The current version only adds optional compatibility and harness-evolution guidance.
+- A game repo that already has many `documentation/*-definition.md` files can keep its structure unchanged. It can adopt the new writing and diagram guidance without restructuring its definitions.
 - A public API surface can be adopted before the rest of the service. Write `docs/<api>-definition.md`, keep implementation notes out of it, and require endpoint tests to cover the documented response and failure behavior.
 - A performance-sensitive browse module can start with principles plus one concrete definition. The PR should include query-count, benchmark, or reproducible workload evidence for the adopted path.
 
