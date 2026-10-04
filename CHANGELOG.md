@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+## 1.4.0
+
+- Add an on-demand Definition Audit contract and task template. Include applicable principles, evaluation definitions, architecture constraints, and workflow rules.
+- Require claim-level evidence, separate test coverage, explicit conflicts and uncertainty, and coverage limits. Report findings before repairs without assuming which pillar is correct.
+- Add flat domain/topic naming guidance with at most two semantic levels and explicit governing links.
+- Prevent agents from adding or expanding manual inventories of every Markdown file unless requested or required by explicit local policy. Keep focused entry points, adopted-scope tables, and generated discovery available.
+- Align agent routing, adoption guidance, development flow, and authoring templates with the new defaults.
+- Preserve existing paths, filenames, directory structures, navigation, and explicit local policies. Audits are opt-in; no migration, default CI gate, or repository report is required.
+
 ## 1.3.0
 
 - Add STE-inspired writing rules and guidance for tables, charts, and editable diagrams.

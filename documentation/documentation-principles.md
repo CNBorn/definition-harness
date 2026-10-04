@@ -10,9 +10,10 @@ Documentation, code, and tests are independent pillars that check each other.
 - Code implements behavior.
 - Tests verify behavior.
 - Each pillar is authoritative in its own domain and does not duplicate another's responsibility.
-- When documentation and runtime behavior disagree:
-  - code and tests usually move together, so the most common case is a stale definition
-  - a failing test derived from a definition claim is a valuable signal that behavior may have drifted from intent
+- Code and tests may agree while both conflict with a definition. Passing tests do not resolve that disagreement.
+- When documentation and runtime behavior disagree, report the evidence without assuming which pillar is wrong.
+- Use approved intent and change history to decide whether to correct implementation, tests, or documentation.
+- A failing test derived from a definition claim is a valuable signal that behavior may have drifted from intent.
 
 ## Current-State Only
 
@@ -73,3 +74,21 @@ Important project knowledge should live in the repository in named files, not on
 - Prefer many scoped documents over one monolithic manual.
 - Keep names predictable so humans and agents can find the right document with simple search.
 - Put durable project knowledge in repo files where it can be reviewed and updated.
+
+## Shallow Organization
+
+Flat documentation with domain and topic names gives readers a useful grouping without a deep directory tree.
+
+- Use naming to aid discovery. Use explicit links to establish governing rules.
+- Keep cross-domain relationships visible through links instead of adding naming levels.
+- Prefer focused entry points over manually maintained exhaustive inventories. An inventory adds another place that can become stale.
+- Preserve useful existing navigation and explicit local choices during compatible adoption.
+
+## Evidence Before Alignment
+
+A definition audit gives the documentation pillar an explicit path to check implementation and tests.
+
+- Read governing claims before inspecting implementation, so current code does not silently become the expected behavior.
+- Include relevant principles and architecture constraints. Distinguish observable requirements from rationale that needs judgment.
+- Separate supported claims, conflicts, unclear rules, and missing evidence. Static inspection and passing tests have different limits.
+- Report differences before changing any pillar. An audit must not silently erase disagreement by rewriting documentation.

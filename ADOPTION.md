@@ -5,10 +5,14 @@ Adoption is gradual by scope. Each adopted scope follows the docs, tests, and va
 
 ## Compatibility
 
-Version 1.3 adds final-state capture defaults and concise writing guidance without requiring migration.
-Repositories using the earlier `documentation/` model, including versions 1.1 and 1.2, keep their valid structure.
+Version 1.4 adds shallow naming guidance, focused navigation defaults, and an on-demand Definition Audit contract without requiring migration.
+Version 1.3's final-state capture defaults and concise writing guidance remain in effect.
+Repositories using the earlier `documentation/` model, including versions 1.1 through 1.3, keep their valid structure.
 Do not rename docs paths, rewrite definitions, or delete useful docs just to adopt newer guidance.
 Existing repositories may retain explicit policies for working artifacts.
+Existing naming, directory structure, and useful navigation remain valid. Do not delete an existing index solely to adopt 1.4.
+For new navigation, agents must not create or expand a manual inventory of every Markdown file unless requested by the user or required by explicit local policy.
+Adopted-scope tables and focused entry points remain valid. Audits are opt-in and do not add a default CI gate or require report files.
 
 ## Adoption Modes
 
@@ -62,6 +66,10 @@ Add principles only when rationale must guide future decisions.
 Add an evaluation definition only when stable scenario, visual, workload, rubric, or operational evidence needs a separate contract.
 Ground rubrics in real examples and review failures.
 
+For new docs, prefer a flat directory with `<domain>-definition.md` and optional `<domain>-<topic>-definition.md` names.
+Use at most two semantic naming levels. Keep explicit links to governing definitions and principles; shared prefixes do not establish inheritance.
+Do not create empty domain definitions or rename existing files just to match this convention.
+
 ### Rationale And Architecture
 
 - Rationale-only scopes use principles. Link related definitions when behavior becomes concrete.
@@ -95,6 +103,15 @@ Put subsystem behavior in definitions.
 
 Final behavior and evidence must be reviewable without repository progress files.
 Follow `documentation/development-flow.md` for the PR format.
+
+## Optional Definition Audit
+
+A user or explicit local policy may request a [Definition Audit](documentation/definition-audit-definition.md) for an adopted scope.
+Adapt or reference the audit contract and task template; copying them into every adopting repository is not required.
+Include the scope's applicable principles, evaluation definitions, architecture constraints, and operator rules.
+Read claims first, then compare implementation and evidence. Report conflicts, unclear claims, insufficient evidence, and unreviewed areas.
+Keep test coverage separate from conformance findings. Do not assume which pillar needs correction.
+Keep the report in the session or PR unless repository retention is requested or required. Perform agreed repairs separately.
 
 ## Framework Versions
 

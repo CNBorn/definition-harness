@@ -11,6 +11,8 @@ Keep documentation, code, tests, and operator-facing instructions aligned.
 - Follow `documentation/documentation-definition.md` for document types, naming, and update rules.
 - Follow `documentation/development-flow.md` for planning, execution, validation, and PR closure.
 - Follow `documentation/agent-workflow-definition.md` for delegated agent work, final-state capture, evaluation, and work-role boundaries.
+- Follow `documentation/definition-audit-definition.md` when a definition audit is requested. Include applicable principles and other governing documents; report evidence and coverage before repairs.
+- Use shallow domain/topic naming for new docs. Do not create or expand a manual inventory of every Markdown file unless requested or required by explicit repo-local policy. Preserve existing navigation during compatible adoption.
 - Capture final behavior, stable rationale, and validation evidence by default. Create implementation, planning, progress, or handoff documents only when requested by the user or required by explicit repo-local policy.
 - Follow `documentation/harness-evolution-principles.md` when changing framework rules, templates, versioning, or compatibility guidance.
 - When behavior changes, verify the matching `*-definition.md` files are still accurate.

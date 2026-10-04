@@ -26,6 +26,18 @@ This document defines the documentation model and update rules for `<docs path>`
 
 Stable docs are allowed to be partial. They are authoritative only for their stated scope.
 
+## Naming And Navigation
+
+- Preserve existing docs paths, filenames, directory structure, and useful navigation during compatible adoption.
+- For new docs, prefer a flat directory with at most two semantic naming levels: `<domain>-definition.md` and optional `<domain>-<topic>-definition.md`. Use the same scope prefixes for principles and evaluation definitions when useful.
+- Multiword domains and topics do not add levels. Type suffixes do not add levels.
+- A shared prefix aids discovery; it does not establish authority. Link applicable system definitions, principles, and cross-domain constraints explicitly.
+- Create domain definitions only for actual baseline rules. Topics may stand alone; principles may be shared.
+- Unless requested by the user or required by explicit repo-local policy, agents must not create or expand a manual inventory of every Markdown file, including exhaustive lists or tables inside other docs.
+- Use focused entry points and related-document links. Adopted-scope tables describe authority and validation boundaries, not a complete file inventory.
+- Generated inventories and one-time discovery output are permitted. Do not copy generated listings into stable docs for manual upkeep.
+- An opted-in inventory is navigation, not behavior authority.
+
 ## Writing And Diagrams
 
 - Use short sentences, active voice, concrete verbs, and one term per concept. These principles are inspired by STE; full ASD-STE100 compliance is not required.
@@ -72,6 +84,15 @@ List each scope that has adopted Definition Harness rules.
 - Existing repo practices may continue.
 - Prefer adding a definition when a non-adopted scope becomes high-risk, high-change, or hard for agents to reason about.
 - Do not create long-lived `*-context.md` files as substitutes for behavior definitions.
+
+## On-Demand Definition Audit
+
+- Run a Definition Audit only when requested by the user or initiated by explicit repo-local policy. It is not a default CI or per-PR gate.
+- Use Definition Harness's `definition-audit-definition.md`, or an adapted local contract, for the procedure and report requirements.
+- Read selected claims before inspecting implementation. Include applicable system definitions, principles, evaluation criteria, architecture constraints, and workflow rules.
+- Record repository state, scope, claim references, implementation evidence, and test evidence. Separate supported claims, conflicts, insufficient evidence, and unclear definitions.
+- Report test coverage and unreviewed areas separately. Do not assume code, tests, or documentation is correct when they disagree.
+- Report differences before repairs. Keep reports in the session or PR unless repository retention is requested or required.
 
 ## Architecture Update Rule
 
