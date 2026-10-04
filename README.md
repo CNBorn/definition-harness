@@ -21,6 +21,10 @@ When a user points you at this repository for project rules:
 5. Read `documentation/agent-workflow-definition.md` when work is delegated to an agent and may require multiple iterations, handoff, unattended execution, or human-attention-light progress.
 6. Use templates from `templates/` only after adapting paths and validation commands to the target repo.
 
+For new docs, prefer a flat directory with domain and optional topic prefixes. Keep existing paths and filenames during compatible adoption.
+Use focused entry points. Do not create or expand a manually maintained inventory of every Markdown file unless the user requests it or explicit local policy requires it.
+Read [Definition Audit](documentation/definition-audit-definition.md) when a user requests an audit.
+
 Do not assume every adopting repository must immediately copy the full structure. Adoption is gradual by scope, not gradual by discipline.
 
 ## Quick Start
@@ -157,6 +161,29 @@ Each adopting repository should define its own native quality loop:
 - domain-specific reproducible workloads when behavior, performance, or reliability needs them
 
 The docs preserve intent and behavior. The toolchain helps prevent silent drift.
+
+## Definition Audit
+
+Definition Audit is an on-demand review of governing documentation against implementation, tests, and other evidence.
+It includes relevant principles, evaluation definitions, architecture constraints, and workflow rules.
+It can run for one adopted scope or, when requested, all adopted scopes. It is not a default CI or per-PR gate.
+
+Use it after adoption or a substantial refactor, before an important release, or when behavior may have drifted.
+For example, tell your agent:
+
+```text
+Run a Definition Audit for <scope> using Definition Harness's definition-audit-definition.md.
+
+Read the scope's definitions and applicable principles, system definitions, evaluation criteria, architecture constraints, and operator instructions before inspecting implementation.
+
+Compare each claim with implementation and test evidence. Run relevant available checks within the permitted environment. Record the repository state, claim references, conflicts, unclear definitions, insufficient evidence, and coverage limits. Report test coverage separately.
+
+Report findings here before making repairs. Do not create a repository report file.
+```
+
+An audit does not assume that code, tests, or documentation is correct when they disagree.
+It reports differences and missing evidence; agreed repairs are separate work.
+See the [audit contract](documentation/definition-audit-definition.md) and `templates/definition-audit.template.md` for an adaptable task prompt.
 
 ## Use With Agent Harnesses
 

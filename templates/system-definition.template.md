@@ -1,6 +1,8 @@
 # <System Name> Definition
 
 Use short, concrete rules. Remove unused sections without omitting required behavior or constraints.
+For new docs, prefer `<domain>-definition.md` in a flat directory. Keep existing adopted filenames.
+Create this document only when the domain has baseline rules to own.
 
 ## Scope
 

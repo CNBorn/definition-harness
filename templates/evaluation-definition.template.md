@@ -3,6 +3,7 @@
 This document defines stable evaluation expectations for `<scope>`.
 
 Use observable pass conditions. Remove sections that do not apply, especially unused rubric sections. Keep required checks, evidence, and failure handling explicit.
+For new docs, prefer `<domain>-evaluation-definition.md` or `<domain>-<topic>-evaluation-definition.md` in a flat directory. The type suffix does not add a naming level. Keep existing adopted filenames.
 
 ## Scope
 

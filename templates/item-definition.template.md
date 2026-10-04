@@ -1,6 +1,7 @@
 # <Item Or Workflow Name> Definition
 
 Use short, concrete rules. Remove unused sections without omitting required behavior or constraints.
+For new docs, prefer `<domain>-<topic>-definition.md` in a flat directory. Keep existing adopted filenames.
 
 ## Scope
 
@@ -9,6 +10,14 @@ Use short, concrete rules. Remove unused sections without omitting required beha
 ## Inherits From
 
 - `documentation/<system>-definition.md`
+
+Link applicable system rules explicitly. A filename prefix does not establish inheritance. Remove this section if no system definition governs this scope.
+
+## Governing Principles
+
+- `documentation/<scope>-principles.md`
+
+Link shared principles and cross-domain constraints when applicable. A separate principles file for this item is not required.
 
 ## Behavior Summary
 

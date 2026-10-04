@@ -26,6 +26,10 @@ Make `<scope>` easier for humans and agents to change by giving it durable behav
 9. Update `README.md` only if setup, commands, user workflows, or operator workflows changed.
 10. Record validation and docs impact in the PR.
 
+For new documentation, use a domain prefix and optional topic prefix in a flat directory when useful.
+Keep existing filenames and navigation. Do not create or expand a manual inventory of every Markdown file unless the user requests it or explicit local policy requires it.
+The adopted-scope list records authority and validation boundaries; it is not a full document inventory.
+
 ## Definition Requirements
 
 The definition should include:

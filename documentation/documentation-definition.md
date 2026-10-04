@@ -30,6 +30,39 @@ Keep an adopting repository's existing docs path. Record it in `AGENTS.md` and t
 Definitions may reference shared principles and adjacent definitions. A scope does not need its own principles file.
 `documentation-principles.md` governs authoring. `programming-principles.md`, when included, governs implementation.
 
+### Shallow Naming
+
+For new documentation, prefer a flat directory and at most two semantic naming levels: domain and optional topic.
+Keep existing paths, filenames, and local naming conventions in adopted repositories.
+
+| Scope | Definition | Optional principles |
+| --- | --- | --- |
+| Domain | `<domain>-definition.md` | `<domain>-principles.md` |
+| Topic within a domain | `<domain>-<topic>-definition.md` | `<domain>-<topic>-principles.md` |
+
+For example, `authentication-definition.md`, `authentication-session-definition.md`, and `authentication-password-reset-definition.md` share a domain prefix.
+Multiword domains and topics do not add semantic levels. Document-type suffixes, including `evaluation-definition`, do not add levels either.
+
+- Use stable domain terms. Do not encode source layout, numeric ordering, or a deeper category chain in filenames.
+- A shared prefix groups documents for discovery. It does not establish authority or inheritance.
+- State applicable system definitions under `Inherits From` or an equivalent explicit link. Name related principles and cross-domain constraints in the document.
+- Each stated inheritance relationship applies the system rules to the item's scope. Related links alone do not imply inheritance.
+- Create a domain definition only when it has baseline rules to own. A topic may stand alone.
+- Shared principles may govern several definitions. A topic does not need its own principles file.
+- Apply consistent terms in the document's language. Existing naming conventions do not require translation.
+
+### Navigation And Inventories
+
+README and AGENTS should route readers to rules and important scopes.
+Unless the user requests one or explicit repo-local policy requires one, agents must not create or expand a manually maintained inventory of every Markdown file.
+This rule applies to standalone indexes and exhaustive tables or lists inside other documents.
+
+- Use a short, task-oriented set of entry points and explicit related-document links.
+- Adopted-scope tables may record authority and validation boundaries. They do not need to enumerate every document in a scope.
+- Generated inventories and one-time discovery output are permitted. Do not copy generated listings into stable docs for manual upkeep.
+- Preserve existing navigation during compatible adoption. Do not delete or reorganize it solely to adopt this guidance.
+- An opted-in inventory remains navigation. It does not define behavior or replace the linked authority.
+
 ### Evaluation Definitions
 
 Use a separate evaluation definition when ordinary tests cannot express all required evidence.
@@ -81,6 +114,8 @@ Use the smallest format that makes the information easy to check.
 
 Use shared names across docs, code, and tests so the mapping is discoverable.
 Definitions need not list individual tests, and tests need not cite document paths.
+Definition audits may build claim-to-evidence mappings for a run. Permanent rule IDs or source/test inventories are not required.
+See [Definition Audit](definition-audit-definition.md) for the audit contract.
 
 ## Scoped Adoption
 

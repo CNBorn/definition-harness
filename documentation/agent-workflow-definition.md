@@ -30,6 +30,10 @@ Definition Harness does not supply a runtime, scheduler, sandbox, approval syste
 One worker may perform several roles. A separate agent process is not required.
 Scope changes must update the agreed goal, non-goals, and affected docs.
 
+An evaluator may perform an on-demand [Definition Audit](definition-audit-definition.md) independently of implementation work.
+Include applicable principles, evaluation definitions, architecture constraints, and workflow rules.
+The audit reports conflicts, uncertainty, and coverage; repairs require their own authorized scope.
+
 ## Delegated Goal
 
 Establish these fields in the task or external harness:

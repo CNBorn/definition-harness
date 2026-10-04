@@ -75,6 +75,13 @@ Use repository handoff files only when tracking is enabled. Never describe incom
 
 `tested` and `documented` are separate checks. Progress and handoff files are not required.
 
+## On-Demand Definition Audit
+
+Use [Definition Audit](definition-audit-definition.md) when the user or explicit repo-local policy requests a broader consistency review.
+It can run without a current PR and does not become a default CI or pre-merge gate.
+Read governing claims first, inspect implementation and evidence, and report conflicts and uncertainty before repairs.
+Include relevant principles and other governing documents. Keep reports in the session or PR unless repository retention is explicitly enabled.
+
 ## PR Description
 
 | Section | Required content |
