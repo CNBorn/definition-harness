@@ -5,6 +5,7 @@ Adoption is gradual by scope. Each adopted scope follows the docs, tests, and va
 
 ## Compatibility
 
+Version 1.4.2 writes the first definition from implemented behavior; a repository without code adopts without one. Both modes use the local documentation rules template.
 Version 1.4.1 adds [entry-file](documentation/documentation-definition.md#entry-file) rules. The entry file routes readers and links to the owning definitions, index, and constraints; it does not restate them. One `README.md` with `AGENTS.md` as a symlink is the recommended layout, not a requirement.
 Version 1.4 adds shallow naming guidance, focused navigation defaults, and an on-demand Definition Audit contract without requiring migration.
 Version 1.3's final-state capture defaults and concise writing guidance remain in effect.
@@ -26,6 +27,7 @@ When a definition changes and the entry file restates it, replace the restatemen
 | Scoped | The repo has existing code, docs, and practices. Recommended for legacy repos. | Keep its docs path. List adopted scopes in local documentation rules. Add definitions and validation for those scopes. |
 
 Complete documentation coverage is not required for scoped adoption.
+Definitions describe implemented behavior. A repository without code completes adoption without a definition. Write the first definition from the first implemented behavior.
 Unadopted scopes keep existing practices. Prefer adoption when a scope becomes high-risk or hard to understand.
 
 ### Adoption Outcome
@@ -46,11 +48,14 @@ Definition Harness does not replace engineering controls. Connect the adopted sc
 
 | Mode | Usual additions |
 | --- | --- |
-| Full repository | Entry file from `templates/entry-file.template.md` with `AGENTS.md` as a symlink; `documentation/documentation-definition.md`, `documentation/development-flow.md`, and `documentation/agent-workflow-definition.md` from this repository; `architecture.md` from `templates/architecture.template.md`; one first definition from `templates/system-definition.template.md` or `templates/item-definition.template.md`; a PR template from `.github/PULL_REQUEST_TEMPLATE.md` |
+| Full repository | Entry file from `templates/entry-file.template.md` with `AGENTS.md` as a symlink; local documentation rules from `templates/existing-repo-documentation-definition.template.md`; `development-flow.md` and `agent-workflow-definition.md` adapted from this repository's `documentation/`; `architecture.md` from `templates/architecture.template.md`; a PR template from `.github/PULL_REQUEST_TEMPLATE.md`. When behavior exists, a definition from `templates/system-definition.template.md` or `templates/item-definition.template.md` |
 | Scoped | Local documentation rules from `templates/existing-repo-documentation-definition.template.md`; one adopted-scope definition, following `templates/adopted-scope.template.md`; principles or evaluation definitions only when needed, from `templates/principles.template.md` or `templates/evaluation-definition.template.md`; the smallest entry-file or PR-template routing update |
 
 Copy only the files you need. Adapt paths and validation commands to the target repository before use.
-A manual adoption copies these files, records repository-wide validation commands once in the entry file, names per-scope checks in the adopted-scope table, creates the first definition for a high-risk or high-change scope, and requires PRs to report validation, risks, and documentation impact.
+The local documentation rules template serves both modes; its filename is kept for compatibility. It links to this repository's `documentation/documentation-definition.md` for the full rules instead of copying them.
+In full-repository adoption, the adopted-scope table lists every scope that has a definition. It may start empty.
+Copied docs link to harness documents that are not starter files, such as `definition-audit-definition.md` and `code-structure-principles.md`. Point those links at a pinned harness URL, or remove them. Copy `code-structure-principles.md` or `programming-principles.md` only when the repository adopts those rules.
+A manual adoption copies these files, records repository-wide validation commands once in the entry file, names per-scope checks in the adopted-scope table, writes a definition from implemented behavior for a high-risk or high-change scope when such behavior exists, and requires PRs to report validation, risks, and documentation impact.
 
 ### Scoped Adoption Examples
 
@@ -69,7 +74,7 @@ New repository:
 
 ```text
 Use Definition Harness from <repo URL> as the documentation and development-flow pattern for this project.
-Read its README and ADOPTION.md, then follow the full-repository adoption mode: add the starter files, adapt paths and validation commands to this project's stack, and create the first definition for the highest-risk subsystem.
+Read its README and ADOPTION.md, then follow the full-repository adoption mode: add the starter files and adapt paths and validation commands to this project's stack. If the project already has behavior, write the first definition from the code of its highest-risk subsystem. If it has no code yet, do not write a definition now.
 ```
 
 Existing repository with partial or messy docs:
