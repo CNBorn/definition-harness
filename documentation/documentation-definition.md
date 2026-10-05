@@ -53,7 +53,7 @@ Multiword domains and topics do not add semantic levels. Document-type suffixes,
 
 ### Entry File
 
-The entry file routes readers to rules. It does not restate them.
+The entry file routes readers to rules. It does not restate them. [Small Routing Entry](documentation-principles.md#small-routing-entry) gives the rationale.
 
 Entry duties are roles, not files:
 
@@ -78,7 +78,7 @@ Ownership:
 - Each always-visible constraint is one sentence and a link to the document that owns it.
 - The local documentation definition, through its adopted-scope table when one exists, is the only document index. The entry file links to it and does not list definitions.
 - Content without an owner does not go in the entry file. Move it to the document that owns it, or leave it to code and tests. Examples are code structure, test coverage lists, generated file names, and per-feature descriptions.
-- Write the entry file in the repository's documentation language. Do not keep a translated copy of the entry file or of definition content.
+- Write the entry file in the repository's documentation language, which is the language of its definitions. Do not keep a translated copy of the entry file or of definition content.
 - Other tool-specific entry paths, such as `CLAUDE.md`, may also be relative symlinks to `README.md`.
 
 Update the entry file only for the changes listed in [Update And Review](#update-and-review).

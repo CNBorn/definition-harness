@@ -11,7 +11,8 @@
 - Define entry duties as roles, not files. One `README.md` with `AGENTS.md` as a relative symlink is recommended, not required. Pointer files and separate files remain valid. Document symlink limits and a `readlink` check.
 - Add "Shrink An Existing Entry File" with an orphan check. Shrink `README.md` before converting `AGENTS.md` to a symlink, and record the agent entry size before and after in the PR. Add the "Small Routing Entry" principle, and `templates/entry-file.template.md`. Align development flow, audit scope, adoption guidance, and templates.
 - Apply the rules to this repository. `README.md` is routing-only and `AGENTS.md` links to it. Adoption prompts, starter files, and scoped-adoption examples moved to `ADOPTION.md`.
-- Existing adopters need no action. Paths, separate entry files, and existing navigation remain valid. Shrinking an existing entry file is optional.
+- Existing adopters need no action. Paths, separate entry files, existing navigation, and entry content written before 1.4.1 remain valid. Shrinking an existing entry file is optional, needs user approval, and confirms that owners contain every fact before deleting.
+- Add an Adoption Outcome checklist and concrete starter-file template paths to `ADOPTION.md`.
 
 ## 1.4.0
 

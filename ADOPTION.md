@@ -15,28 +15,42 @@ Existing naming, directory structure, and useful navigation remain valid. Do not
 For new navigation, agents must not create or expand a manual inventory of every Markdown file unless requested by the user or required by explicit local policy.
 Adopted-scope tables and focused entry points remain valid. Audits are opt-in and do not add a default CI gate or require report files.
 Separate `README.md` and `AGENTS.md` files remain valid. Converting `AGENTS.md` to a symlink is optional.
-Existing adopters need no action for 1.4.1. The entry-file rules apply to new and changed entry content.
+Existing adopters need no action for 1.4.1. The entry-file rules apply to new and changed entry content. Entry content written before 1.4.1, including a separate `AGENTS.md` that repeats `README.md`, remains valid until it changes.
 When a definition changes and the entry file restates it, replace the restatement with a link instead of editing both. A full cleanup is optional; see [Shrink An Existing Entry File](#shrink-an-existing-entry-file).
 
 ## Adoption Modes
 
 | Mode | Use when | Required setup |
 | --- | --- | --- |
-| Full repository | The repo is new or already uses structured behavior docs. | Stable docs, a routing-only entry file, validation commands, and PR docs/validation reporting. |
+| Full repository | The repo is new or already uses structured behavior docs. | Stable docs, an entry file (routing-only for new repositories), validation commands, and PR docs/validation reporting. |
 | Scoped | The repo has existing code, docs, and practices. Recommended for legacy repos. | Keep its docs path. List adopted scopes in local documentation rules. Add definitions and validation for those scopes. |
 
 Complete documentation coverage is not required for scoped adoption.
 Unadopted scopes keep existing practices. Prefer adoption when a scope becomes high-risk or hard to understand.
 
+### Adoption Outcome
+
+Adoption is complete when the target repository states these boundaries explicitly:
+
+- where stable docs live, such as `documentation/` or an existing `docs/`
+- which docs are stable authority and which are temporary working notes
+- which scopes are adopted, and which keep existing practice
+- which validation commands prove changes in adopted scopes
+- which scopes need evaluation definitions for scenario, visual, workload, rubric, or operational evidence
+- whether local policy enables planning, progress, acceptance, or handoff files
+- when the entry file, architecture docs, definitions, principles, and tests must be updated
+
+Definition Harness does not replace engineering controls. Connect the adopted scopes to the repository's own quality loop: typed or validated boundaries, static analysis, automated tests, CI gates, PR reporting, and reproducible workloads where behavior needs them.
+
 ### Starter Files
 
 | Mode | Usual additions |
 | --- | --- |
-| Full repository | Entry file from `templates/entry-file.template.md` with `AGENTS.md` as a symlink; `documentation-definition.md`; `development-flow.md`; `agent-workflow-definition.md`; `architecture.md`; one first definition; a PR template with Docs and Validation sections |
-| Scoped | Local documentation rules from `templates/existing-repo-documentation-definition.template.md`; one adopted-scope definition; principles or evaluation definitions only when needed; the smallest entry-file or PR-template routing update |
+| Full repository | Entry file from `templates/entry-file.template.md` with `AGENTS.md` as a symlink; `documentation/documentation-definition.md`, `documentation/development-flow.md`, and `documentation/agent-workflow-definition.md` from this repository; `architecture.md` from `templates/architecture.template.md`; one first definition from `templates/system-definition.template.md` or `templates/item-definition.template.md`; a PR template from `.github/PULL_REQUEST_TEMPLATE.md` |
+| Scoped | Local documentation rules from `templates/existing-repo-documentation-definition.template.md`; one adopted-scope definition, following `templates/adopted-scope.template.md`; principles or evaluation definitions only when needed, from `templates/principles.template.md` or `templates/evaluation-definition.template.md`; the smallest entry-file or PR-template routing update |
 
 Copy only the files you need. Adapt paths and validation commands to the target repository before use.
-A manual adoption copies these files, records validation commands once in the entry file, creates the first definition for a high-risk or high-change scope, and requires PRs to report validation, risks, and documentation impact.
+A manual adoption copies these files, records repository-wide validation commands once in the entry file, names per-scope checks in the adopted-scope table, creates the first definition for a high-risk or high-change scope, and requires PRs to report validation, risks, and documentation impact.
 
 ### Scoped Adoption Examples
 
@@ -63,7 +77,7 @@ Existing repository with partial or messy docs:
 ```text
 Use Definition Harness from <repo URL> in scoped-adoption mode.
 Do not reorganize the whole docs tree. Keep this repo's existing docs path.
-Pick one high-risk or high-change scope, add local documentation rules, create or update one behavior definition for that scope, and update tests and validation expectations around its observable claims.
+Pick one high-risk or high-change scope, add local documentation rules that separate stable and temporary docs, create or update one behavior definition for that scope, and update tests and validation expectations around its observable claims.
 ```
 
 One existing scope:
@@ -71,7 +85,7 @@ One existing scope:
 ```text
 Use Definition Harness from <repo URL> to adopt only <scope name> in this existing repository.
 First inspect the current docs, code, tests, entry files (README.md, AGENTS.md), and PR template. Do not reorganize unrelated docs.
-Add <scope name> to the adopted-scope table in the local documentation rules, create or update its current-state definition, and identify the tests or validation commands that protect it.
+Add <scope name> to the adopted-scope table in the local documentation rules, create or update its current-state definition, and identify the tests or validation commands that protect it. Make the smallest routing updates needed so future PRs keep that scope's docs, code, and tests aligned.
 ```
 
 Repository that adopted an earlier version:
@@ -158,17 +172,19 @@ ln -s README.md AGENTS.md
 ```
 
 In an existing repository, shrink `README.md` to a routing-only entry with the steps below before converting `AGENTS.md` to a symlink.
-Agents load the symlinked file in every session. Record the agent entry size before and after the change in the PR.
+Agents load the symlinked file in every session. Record the agent entry size in bytes before and after the change in the PR. Before the change, count every file that agents load; after it, count `README.md`.
 
 ### Shrink An Existing Entry File
 
 Use these steps when an entry file restates definitions or carries content without an owner. The steps are optional for existing adopters.
+Report the findings and ask the user before deleting. A requested shrink may remove entry-file navigation, such as a definition list, that compatible adoption would otherwise preserve.
+Apply the steps to `README.md` and to a separate `AGENTS.md`. Content that exists only in `AGENTS.md` follows the same steps before any symlink conversion.
 
 1. Review the entry file section by section. For each section, find the document that owns the content.
-2. If a definition or another stable document owns the content, delete it from the entry file.
+2. If a definition or another stable document owns the content, confirm that the owner contains every fact. Move missing facts to the owner. If the two copies conflict, report the conflict and ask which is correct. Then delete the section from the entry file.
 3. If no document owns the content, move it to its owner first, then delete it. Behavior goes to a definition. Code structure, test coverage, and generated file names may stay in code and tests.
 4. Replace definition lists with one link to the local documentation definition or its adopted-scope table.
-5. Keep one language, the documentation language. Delete a translated copy after its facts are covered.
+5. Keep one language, the documentation language. Delete a translated copy after its facts are covered. If the entry files and definitions use different languages, ask the user which language is the documentation language.
 6. Keep each always-visible constraint as one sentence and a link.
 7. Check for orphans. Each document that the removed text linked must still be reachable from its owner, the adopted-scope table, or another stable document. Add the missing link to the owner.
 8. Record deleted and moved sections, with their new owners, in the PR.

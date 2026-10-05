@@ -10,7 +10,7 @@ It only routes. Rules live in `ADOPTION.md` and `documentation/`; this file does
 Point your coding agent at this repository URL. A local checkout is not required.
 
 ```text
-Use Definition Harness from <repo URL>. Read its README and ADOPTION.md, choose the adoption mode for this repository, and follow it.
+Use Definition Harness from <repo URL>. Read its README and ADOPTION.md. If this repository already adopted an earlier version, follow the earlier-version prompt in ADOPTION.md. Otherwise choose the adoption mode and follow it.
 ```
 
 Prompts for a new repository, an existing repository, one scope, and an earlier-version adopter are in [Adoption Prompts](ADOPTION.md#adoption-prompts).
@@ -18,7 +18,7 @@ For an audit, use `templates/definition-audit.template.md`.
 
 ## Read Before Adopting
 
-1. [ADOPTION.md](ADOPTION.md): adoption modes, compatibility, starter files, and the entry-file layout. Adoption is gradual by scope, not by discipline.
+1. [ADOPTION.md](ADOPTION.md): adoption modes, the adoption outcome, compatibility, starter files, prompts, and the entry-file layout. Adoption is gradual by scope, not by discipline.
 2. [Documentation definition](documentation/documentation-definition.md): document types, naming, writing, entry-file, and update rules.
 3. [Development flow](documentation/development-flow.md): planning, validation, and PR closure.
 4. [Agent workflow definition](documentation/agent-workflow-definition.md): when work is delegated to an agent.

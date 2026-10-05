@@ -7,7 +7,7 @@ It only routes. Behavior, operations, values, and limits live in `<docs path>/`;
 
 ## Run
 
-<Requirements, one line each, linked to the definition that owns the platform contract.>
+<Requirements, one line each. Link the definition that owns the platform contract when one exists.>
 
 ```sh
 <run command>
