@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.4.2
+
 - Definitions describe implemented behavior. A repository without code completes adoption without a definition; the first definition is written from the first implemented behavior.
 - Full-repository adoption uses the local documentation rules template, with an adopted-scope table that may start empty. The template links to the pinned harness rules instead of copying them; its filename is unchanged.
 - Explain how to handle links in copied starter docs that point to harness documents outside the starter set.

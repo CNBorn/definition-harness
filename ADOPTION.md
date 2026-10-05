@@ -5,6 +5,7 @@ Adoption is gradual by scope. Each adopted scope follows the docs, tests, and va
 
 ## Compatibility
 
+Version 1.4.2 writes the first definition from implemented behavior; a repository without code adopts without one. Both modes use the local documentation rules template.
 Version 1.4.1 adds [entry-file](documentation/documentation-definition.md#entry-file) rules. The entry file routes readers and links to the owning definitions, index, and constraints; it does not restate them. One `README.md` with `AGENTS.md` as a symlink is the recommended layout, not a requirement.
 Version 1.4 adds shallow naming guidance, focused navigation defaults, and an on-demand Definition Audit contract without requiring migration.
 Version 1.3's final-state capture defaults and concise writing guidance remain in effect.
