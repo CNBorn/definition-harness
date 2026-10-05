@@ -7,7 +7,7 @@
 
 ## Governing Principles
 
-- `documentation/support-operations-principles.md`
+- [Support operations principles](support-operations-principles.md)
 
 ## Behavior Summary
 

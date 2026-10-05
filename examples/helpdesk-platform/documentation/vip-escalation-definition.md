@@ -6,7 +6,11 @@
 
 ## Inherits From
 
-- `documentation/ticket-routing-definition.md`
+- [Ticket routing definition](ticket-routing-definition.md)
+
+## Governing Principles
+
+- [Support operations principles](support-operations-principles.md): separate notification from state mutation, and escalate by threshold.
 
 ## Behavior Summary
 

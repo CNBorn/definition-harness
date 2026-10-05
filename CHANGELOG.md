@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Update the helpdesk platform example to the 1.4.2 rules: a routing-only entry file with `AGENTS.md` as a symlink, local documentation rules with the adopted-scope table as the only index, and explicit principle and inheritance links. No framework rule changes.
+
 ## 1.4.2
 
 - Definitions describe implemented behavior. A repository without code completes adoption without a definition; the first definition is written from the first implemented behavior.
