@@ -1,6 +1,7 @@
 # Documentation Definition
 
 This document defines the documentation model and update rules for `<docs path>`.
+It applies [Definition Harness <version>](<pinned harness URL>/ADOPTION.md). The full rules are in the pinned `documentation/documentation-definition.md`; this document records local choices.
 
 ## Scope
 
@@ -67,7 +68,8 @@ Delegation, task duration, multiple iterations, or crossing sessions does not it
 
 ## Adopted Scopes
 
-List each scope that has adopted Definition Harness rules.
+List each scope that has adopted Definition Harness rules. This table is the only document index.
+In full-repository adoption, list every scope that has a definition. The table may start empty until the first behavior is implemented.
 
 | Scope | Stable docs | Validation expectations | Notes |
 | --- | --- | --- | --- |
