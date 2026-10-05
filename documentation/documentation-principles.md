@@ -84,6 +84,19 @@ Flat documentation with domain and topic names gives readers a useful grouping w
 - Prefer focused entry points over manually maintained exhaustive inventories. An inventory adds another place that can become stale.
 - Preserve useful existing navigation and explicit local choices during compatible adoption.
 
+## Small Routing Entry
+
+Agent tools load the agent entry file in every session. Every line in it costs context each time and is another copy that can drift.
+This supports the "map, not manual" position in `POSITIONING.md`.
+
+- Ownership comes before file roles. When a definition owns a user operation, the operation is behavior. The entry file links to it, so a feature change updates only the definition.
+- "README covers user workflows" applies only to workflows that no definition owns, such as installation and commands. Applying it to owned workflows makes the entry file grow with every feature.
+- Entry duties are roles, not files. One file can carry the human and agent roles. A symlink keeps the `AGENTS.md` path that agent tools expect.
+- `README.md` holds the content because repository hosts and package registries render it. Agent tools read local files and follow symlinks.
+- One index and one language keep one copy. A second definition list or a translated entry file is a third copy.
+- The entry file answers "where is the rule". The owning document answers "what is the rule".
+- One file is recommended, not required. Separate files remain valid when neither repeats the other or a definition.
+
 ## Evidence Before Alignment
 
 A definition audit gives the documentation pillar an explicit path to check implementation and tests.

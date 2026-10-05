@@ -14,8 +14,8 @@ Before coding:
 
 1. Plan concrete steps in the task or external harness.
 2. Implement behavior and update tests in the same change.
-3. Update matching definitions and any affected operator instructions.
-4. Update `README.md` when setup, commands, or user/operator workflows change.
+3. Update the definitions that own the changed behavior, including user and operator workflows. Add a new adopted scope to the adopted-scope table.
+4. Update the entry file only when how to run, development commands, the reading route, or validation commands change. See [Entry File](documentation-definition.md#entry-file).
 5. Run repository validation and record commands and results in the PR.
 
 Use `documentation/documentation-definition.md` for writing rules, diagrams, and document update rules.
@@ -70,7 +70,7 @@ Use repository handoff files only when tracking is enabled. Never describe incom
 - Unit/integration behavior has adequate coverage.
 - Required validation passes; commands, evidence, and unresolved risks are reported.
 - Performance/reliability changes include before/after evidence when relevant.
-- README and architecture updates follow their scope rules.
+- Entry file and architecture updates follow their scope rules. The entry file does not restate definition content.
 - Any working artifacts are resolved under repo-local retention rules.
 
 `tested` and `documented` are separate checks. Progress and handoff files are not required.

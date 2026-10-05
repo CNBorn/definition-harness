@@ -20,10 +20,10 @@ Make `<scope>` easier for humans and agents to change by giving it durable behav
 3. Create or update `<docs path>/<scope>-definition.md` for current behavior.
 4. Create or update `<docs path>/<scope>-principles.md` only if stable rationale needs to guide future changes.
 5. Create or update `<docs path>/<scope>-evaluation-definition.md` only if stable scenario, visual, workload, rubric, or operational evidence needs to be defined.
-6. Add `<scope>` to the adopted-scope list in the repo-local documentation rules.
+6. Add `<scope>` to the adopted-scope table in the repo-local documentation rules. This table is the document index.
 7. Add or update tests for the observable claims in the definition.
-8. Update `AGENTS.md` only if agents need a new routing rule, validation command, or delegated-work convention.
-9. Update `README.md` only if setup, commands, user workflows, or operator workflows changed.
+8. Do not add `<scope>` to the entry file. Update the entry file only if how to run, development commands, the reading route, or validation commands changed.
+9. If the entry file restates `<scope>` behavior, move any missing facts into the definition, then replace the restatement with a link.
 10. Record validation and docs impact in the PR.
 
 For new documentation, use a domain prefix and optional topic prefix in a flat directory when useful.

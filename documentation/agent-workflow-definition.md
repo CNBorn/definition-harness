@@ -11,7 +11,7 @@ Definition Harness does not supply a runtime, scheduler, sandbox, approval syste
 ## Core Rules
 
 - Store final behavior in definitions, stable rationale in principles, and reusable evaluation rules in evaluation definitions when needed.
-- Keep `AGENTS.md` as a concise map. Durable knowledge must be available outside chat history.
+- Keep the entry file a concise routing map. See [Entry File](documentation-definition.md#entry-file). Durable knowledge must be available outside chat history.
 - Record final validation, docs impact, risks, and follow-up in the PR.
 - Execution state may stay in the task, session, or external harness.
 - Create repository working files only when the user requests them or explicit repo-local policy requires them.
@@ -68,7 +68,7 @@ Do not present incomplete work as final behavior.
 Match evidence to the risk: tests, build/lint/type checks, reproducible workloads, before/after measurements, browser scenarios, screenshots, videos, logs, or traces.
 For judgment-based work, include rubric scores and reviewer reasoning.
 
-The scope's definition, evaluation definition, development flow, README, or PR template states the required evidence.
+The scope's definition, evaluation definition, development flow, or PR template states the required evidence. The entry file lists validation commands only.
 
 ### Rubrics
 
