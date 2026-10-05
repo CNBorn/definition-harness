@@ -30,7 +30,7 @@ The model is:
 - `definitions` capture current, testable behavior
 - `architecture` captures boundaries and ownership
 - `development flow` keeps docs, code, and tests evolving together
-- `AGENTS.md` acts as a map, not as an oversized manual
+- the entry file acts as a map, not as an oversized manual; agents load it every session, so it only routes
 
 The goal is not just better prompting. The goal is a codebase that gradually becomes easier to reason about.
 

@@ -5,11 +5,11 @@ This document defines document types, writing rules, and update rules for `docum
 ## Scope And Paths
 
 - `documentation/` holds behavior, rationale, architecture, evaluation, and process docs.
-- `README.md` covers setup, commands, and user/operator workflows.
-- `AGENTS.md` maps agents to repository rules and validation commands.
+- `README.md` is the entry file. It covers how to run, development commands, the reading route, and validation commands.
+- `AGENTS.md` is the agent entry. It may be a symlink to `README.md`. See [Entry File](#entry-file).
 - `ADOPTION.md` defines adoption modes and compatibility.
 
-Keep an adopting repository's existing docs path. Record it in `AGENTS.md` and the local documentation definition.
+Keep an adopting repository's existing docs path. Record it in the entry file and the local documentation definition.
 
 ## Document Types
 
@@ -51,9 +51,48 @@ Multiword domains and topics do not add semantic levels. Document-type suffixes,
 - Shared principles may govern several definitions. A topic does not need its own principles file.
 - Apply consistent terms in the document's language. Existing naming conventions do not require translation.
 
+### Entry File
+
+The entry file routes readers to rules. It does not restate them.
+
+Entry duties are roles, not files:
+
+| Role | Content |
+| --- | --- |
+| Human entry | Purpose, setup, how to run, and development command invocations |
+| Agent entry | Reading route, validation commands, and the few constraints that every session must see |
+
+One file may perform both roles. The recommended layout is one entry file:
+
+| Layout | Status |
+| --- | --- |
+| `README.md` holds both roles. `AGENTS.md` is a relative symlink to it. | Recommended. Not required. |
+| `README.md` holds both roles. `AGENTS.md` is a pointer file that names `README.md`. | Valid when the repository cannot store symlinks. |
+| `README.md` holds the human role. A separate `AGENTS.md` holds the agent role. | Valid. Neither file repeats the other. |
+
+Ownership:
+
+- A definition owns each user or operator workflow, operation, value, or limit that it describes. The entry file links to that definition and may show the command that starts the workflow.
+- The entry file must not restate steps, parameters, defaults, limits, or constraints that a definition owns.
+- The entry file describes a workflow directly only when no definition owns it, such as installation and development commands.
+- Each always-visible constraint is one sentence and a link to the document that owns it.
+- The local documentation definition, through its adopted-scope table when one exists, is the only document index. The entry file links to it and does not list definitions.
+- Content without an owner does not go in the entry file. Move it to the document that owns it, or leave it to code and tests. Examples are code structure, test coverage lists, generated file names, and per-feature descriptions.
+- Write the entry file in the repository's documentation language. Do not keep a translated copy of the entry file or of definition content.
+- Other tool-specific entry paths, such as `CLAUDE.md`, may also be relative symlinks to `README.md`.
+
+Update the entry file only for the changes listed in [Update And Review](#update-and-review).
+To shrink an existing entry file, follow [Shrink An Existing Entry File](../ADOPTION.md#shrink-an-existing-entry-file).
+
+Symlink limits:
+
+- A Windows checkout without `core.symlinks` enabled writes `AGENTS.md` as a text file that contains `README.md`. Agents that read this file then open `README.md`.
+- Raw-file URLs return the link target, not the content. Point remote readers at `README.md`.
+- A repository can check the link in validation: `test "$(readlink AGENTS.md)" = README.md`.
+
 ### Navigation And Inventories
 
-README and AGENTS should route readers to rules and important scopes.
+The entry file routes readers to rules and to the local documentation definition.
 Unless the user requests one or explicit repo-local policy requires one, agents must not create or expand a manually maintained inventory of every Markdown file.
 This rule applies to standalone indexes and exhaustive tables or lists inside other documents.
 
@@ -139,7 +178,7 @@ Planning and execution state may stay in the task, session, or external harness.
 
 Working docs are not long-term behavior authority.
 When opted in, progress files must contain enough current state to resume without chat history.
-Before closure, move lasting behavior, rationale, and evaluation rules into stable docs, README, or runbooks.
+Before closure, move lasting behavior, rationale, and evaluation rules into the stable docs or runbooks that own them.
 Keep one-time decisions in PR history. Delete working files unless they are intentionally retained as history.
 
 ## Update And Review
@@ -152,8 +191,9 @@ When behavior changes, search docs by scope terminology and check the relevant d
 | Stable rationale | Matching principles |
 | Checks, rubrics, or evidence requirements | Matching evaluation definitions |
 | Boundaries, ownership, dependencies, or lifecycle | `architecture.md` |
-| Setup, commands, or user/operator workflows | `README.md` |
-| Agent routing or validation guidance | `AGENTS.md` |
+| User/operator workflows or operations that a definition owns | That definition only |
+| New adopted scope | Adopted-scope table only |
+| How to run, development commands, reading route, or validation commands | Entry file. See [Entry File](#entry-file). |
 
 Before merge, remove stale terminology and confirm docs match the final implementation.
 Verify `tested` and `documented` separately.

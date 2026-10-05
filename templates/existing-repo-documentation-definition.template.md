@@ -11,8 +11,13 @@ This document defines the documentation model and update rules for `<docs path>`
 ## Documentation Path
 
 - Stable project documentation lives in `<docs path>/`. Temporary working documents are optional and use the repo-local path when enabled.
-- `README.md` remains the entrypoint for setup, commands, and user/operator-facing workflows.
-- `AGENTS.md` remains the concise agent map for repository rules and validation commands.
+- `README.md` is the entry file: how to run, development commands, the reading route, validation commands, and a few always-visible constraints.
+- `AGENTS.md` is <a relative symlink to `README.md` | a pointer file that names `README.md` | a separate agent entry that does not repeat `README.md`>.
+- The entry file only routes. It links to owning definitions and does not restate their steps, parameters, defaults, limits, or constraints.
+- Each always-visible constraint is one sentence and a link to its owner.
+- The adopted-scope table in this document is the only document index. The entry file links here and does not list definitions.
+- Content without an owner, such as code structure or test coverage lists, goes to its owner or stays in code and tests, not in the entry file.
+- The entry file uses the documentation language. Do not keep translated copies of entry or definition content.
 
 ## Stable Docs
 
@@ -56,7 +61,7 @@ Default adoption captures final behavior, stable rationale, and reusable evaluat
 - `*-progress.md`: active work tracking, handoff notes, blockers, and validation logs.
 - `IN_PROGRESS.md`: short-lived state for active multi-step work.
 
-Temporary docs may support work, but they must not become long-term behavior authority. Before closing a feature, move lasting behavior or rationale into the relevant stable docs, README, runbooks, or PR history.
+Temporary docs may support work, but they must not become long-term behavior authority. Before closing a feature, move lasting behavior or rationale into the stable docs or runbooks that own it, or into PR history.
 
 Delegation, task duration, multiple iterations, or crossing sessions does not itself require repository progress files. Execution state may stay in the external harness or session. When repository tracking is opted in, `IN_PROGRESS.md` may index a detailed `*-progress.md` artifact. Existing tracking conventions remain valid.
 
@@ -100,9 +105,11 @@ Update `architecture.md` only when boundaries, ownership, dependency direction, 
 
 Do not add routine implementation detail, file inventories, or low-level step-by-step logic to architecture docs.
 
-## README Update Rule
+## Entry File Update Rule
 
-Update `README.md` when setup steps, commands, user workflows, operator workflows, or public usage instructions change.
+- Behavior or operation changes update only the definition that owns them.
+- A new adopted scope updates only the adopted-scope table.
+- Update the entry file only when how to run, development commands, the reading route, or validation commands change.
 
 ## Pre-Merge Checklist
 
@@ -112,4 +119,4 @@ Update `README.md` when setup steps, commands, user workflows, operator workflow
 - Temporary planning docs are cleaned up or marked as historical.
 - Final behavior and evaluation evidence are reviewable without repository progress or handoff files.
 - Validation commands were run and recorded.
-- README and architecture docs were checked for relevance.
+- The entry file and architecture docs were checked for relevance. The entry file does not restate definition content.

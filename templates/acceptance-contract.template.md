@@ -35,8 +35,7 @@ Before closure, move durable behavior into `*-definition.md`, stable evaluation 
 - `<docs path>/<scope>-definition.md`
 - `<docs path>/<scope>-principles.md`
 - `<docs path>/<scope>-evaluation-definition.md`
-- `README.md`
-- `AGENTS.md`
+- Entry file, only if how to run, commands, the reading route, or validation commands change
 
 ## Risks
 

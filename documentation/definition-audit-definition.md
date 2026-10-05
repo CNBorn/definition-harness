@@ -6,7 +6,8 @@ It reports conflicts and uncertainty for a stated scope and repository state.
 ## Scope
 
 - Include the selected behavior definitions and their applicable system definitions, principles, evaluation definitions, and architecture constraints.
-- Include process rules, README instructions, and runbooks when they govern the audited behavior or workflow.
+- Include process rules, entry-file instructions, and runbooks when they govern the audited behavior or workflow.
+- When the entry file restates content that a definition owns, report the restatement as a documentation finding. Report it as a conflict when the two copies differ.
 - The name does not exclude principles or other relevant authority. Keep each document's role distinct.
 - Default to the requested adopted scope. Audit all adopted scopes only when requested. Do not assume undocumented areas are adopted.
 - An audit may cover a rationale-only or process scope. Report which claims can be checked and which require human judgment.
