@@ -64,7 +64,7 @@ A manual adoption copies these files, records repository-wide validation command
 - A public API is adopted before the rest of the service. Endpoint tests cover the documented response and failure behavior.
 - A performance-sensitive module starts with principles and one definition. Its PRs include query-count, benchmark, or workload evidence.
 
-See `examples/helpdesk-platform/` for example documentation of a non-game product.
+See the [helpdesk platform example](examples/helpdesk-platform/README.md) for a full-repository adoption of a non-game product.
 
 ## Adoption Prompts
 
